@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.7" type="plugin" group="system" method="update">
+  <name>PLG_SYSTEM_SUNSTAT</name>
+  <author>Vitaliy Zhukov</author>
+  <creationDate>March 2013</creationDate>
+  <authorEmail>info@aunited.ru</authorEmail>
+  <authorUrl>http://aunited.ru</authorUrl>
+  <version>0.1.0</version>
+  <copyright>Copyright (c) 2014 AUnuted. All rights reserved.</copyright>
+  <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+  <description>PLG_SUNSTAT_XML_DESCRIPTION</description>
+  <files>
+    <filename plugin="SunStat">SunStat.php</filename>
+    <filename>index.html</filename>
+	<folder>language</folder>
+  </files>
+  <config>
+    <fields name="params" >
+      <fieldset name="Basic">
+		<field name="ym_enabled" type="radio" default="0" label="PLG_SYS_SS_YM_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+		</field> 
+		<field name="ym_noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_YM_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+        </field>
+		<field name="mr_enabled" type="radio" default="0" label="PLG_SYS_SS_MR_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+		</field> 
+		<field name="mr_noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_MR_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+        </field>
+		<field name="li_enabled" type="radio" default="0" label="PLG_SYS_SS_LI_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+		</field> 
+		<field name="li_noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_LI_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+        </field>		
+		<field name="ga_enabled" type="radio" default="0" label="PLG_SYS_SS_GA_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+		</field> 
+		<field name="ga_noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_GA_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+        </field>
+      </fieldset>
+	  
+	  <fieldset name="PLG_SYSTEM_SUNSTAT_GA">
+          <field name="ga_noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_GA_NOINDEX_WRAPPER" description="PLG_SYS_SS_GA_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+          </field>
+	  <field name="ga_subdomains" type="radio" default="1" label="PLG_SYS_SS_GA_SUBDOMAINS" description="PLG_SYS_SS_GA_SUBDOMAINS_DESC">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+		</field>
+		<field name="ga_addDomain" type="radio" default="1" label="PLG_SYS_SS_GA_ADDDOMAIN" description="PLG_SYS_SS_PWK_ADDDOMAIN_DESC">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+		</field>
+        <field name="ga_linksOut" type="radio" default="1" label="PLG_SYS_SS_PWK_OUTLINKS" description="PLG_SYS_SS_PWK_OUTLINKS_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+        </field>
+        <field name="ga_address" type="radio" default="0" label="PLG_SYS_SS_PWK_ADDRESS" description="PLG_SYS_SS_PWK_ADDRESS_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+        </field>
+		</fieldset>
+		
+      <fieldset name="PLG_SYSTEM_SUNSTAT_YM">
+	  <field name="ym_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_YM_ID" description="PLG_SYS_SS_YM_ID_DESC"></field>
+          <field name="noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_YM_NOINDEX_WRAPPER" description="PLG_SYS_SS_YM_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+          </field>
+	  <field name="ym_webvisor" type="radio" default="1" label="PLG_SYS_SS_YM_WEBVISOR" description="PLG_SYS_SS_YM_WEBVISOR_DESC">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+		</field>
+		<field name="ym_clickMap" type="radio" default="1" label="PLG_SYS_SS_YM_CLICKMAP" description="PLG_SYS_SS_YM_CLICKMAP_DESC">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+		</field>
+        <field name="ym_linksOut" type="radio" default="1" label="PLG_SYS_SS_YM_OUTLINKS" description="PLG_SYS_SS_YM_OUTLINKS_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+        </field>
+        <field name="ym_accurateTrackBounce" type="radio" default="1" label="PLG_SYS_SS_YM_BOUNCE" description="PLG_SYS_SS_YM_BOUNCE_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+        </field>
+        <field name="ym_noIndex" type="radio" default="0" label="PLG_SYS_SS_YM_NOINDEX" description="PLG_SYS_SS_YM_NOINDEX_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+        </field>
+		</fieldset>
+		
+		<fieldset name="PLG_SYSTEM_SUNSTAT_MR">
+	  <field name="mr_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_MR_ID" description="PLG_SYS_SS_MR_ID_DESC"></field>
+          <field name="mr_noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_MR_NOINDEX_WRAPPER" description="PLG_SYS_SS_MR_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+          </field>
+		</fieldset>
+		
+	<fieldset name="PLG_SYSTEM_SUNSTAT_PWK">
+          <field name="pwk_noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_PWK_NOINDEX_WRAPPER" description="PLG_SYS_SS_PWK_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+          </field>
+	  <field name="pwk_subdomains" type="radio" default="1" label="PLG_SYS_SS_PWK_SUBDOMAINS" description="PLG_SYS_SS_PWK_SUBDOMAINS_DESC">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+		</field>
+		<field name="pwk_addDomain" type="radio" default="1" label="PLG_SYS_SS_PWK_ADDDOMAIN" description="PLG_SYS_SS_PWK_ADDDOMAIN_DESC">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+		</field>
+        <field name="pwk_linksOut" type="radio" default="1" label="PLG_SYS_SS_PWK_OUTLINKS" description="PLG_SYS_SS_PWK_OUTLINKS_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+        </field>
+        <field name="pwk_address" type="radio" default="0" label="PLG_SYS_SS_PWK_ADDRESS" description="PLG_SYS_SS_PWK_ADDRESS_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+        </field>
+		</fieldset>
+    </fields>
+  </config>
+    <updateservers>
+        <server type="extension" priority="1" name="YandexMetrica"><![CDATA[http://aunited.ru/updatexml/SunStat-update.xml]]></server>
+    </updateservers>
+</extension>
