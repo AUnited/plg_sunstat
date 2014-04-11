@@ -45,26 +45,33 @@ class plgSystemMailRu extends JPlugin
 		// Initialise variables
 		//mailru
 		$mr_enabled = $this->params->get( 'mr_enabled', '' );
+		$mr_noIndexWrapper = $this->params->get( 'mr_noindexWrapper', '1' );
 		$mr_id = $this->params->get( 'mr_id', '' );
         $mr_noIndex = $this->params->get( 'mr_noIndex', '' );
-        $mr_noIndexWrapper = $this->params->get( 'mr_noindexWrapper', '1' );
 		//yandex metrika
 		$ym_enabled = $this->params->get( 'ym_enabled', '' );
+		$ym_noIndexWrapper = $this->params->get( 'ym_noindexWrapper', '1' );
 		$ym_id = $this->params->get( 'ym_id', '' );
         $ym_webvisor = $this->params->get( 'ym_webvisor', '' );
 		$ym_clickMap = $this->params->get( 'ym_clickMap', '' );
         $ym_linksOut = $this->params->get( 'ym_linksOut', '' );
         $ym_accurateTrackBounce = $this->params->get( 'ym_accurateTrackBounce', '' );
         $ym_noIndex = $this->params->get( 'ym_noIndex', '' );
-        $ym_noIndexWrapper = $this->params->get( 'ym_noindexWrapper', '1' );
 		//google analytics
 		$ga_enabled = $this->params->get( 'ga_enabled', '' );
+		$ga_noIndexWrapper = $this->params->get( 'ga_noindexWrapper', '1' );
 		$ga_id = $this->params->get( 'ga_id', '' );
 		$ga_domain = $this->params->get( 'ga_domain', '' );
 		//piwik
 		$pwk_enabled = $this->params->get( 'pwk_enabled', '' );
+		$pwk_noIndexWrapper = $this->params->get( 'pwk_noindexWrapper', '1' );
+		$pwk_enabled = $this->params->get( 'pwk_enabled', '' );
+		$pwk_enabled = $this->params->get( 'pwk_enabled', '' );
+		$pwk_enabled = $this->params->get( 'pwk_enabled', '' );
+		$pwk_enabled = $this->params->get( 'pwk_enabled', '' );
 		//liveinternet
 		$li_enabled = $this->params->get( 'li_enabled', '' );
+		$li_noIndexWrapper = $this->params->get( 'li_noindexWrapper', '1' );
 		
 		//getting body code and storing as buffer
 		$buffer = JResponse::getBody();

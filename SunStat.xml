@@ -17,7 +17,7 @@
   <config>
     <fields name="params" >
       <fieldset name="Basic">
-		<field name="ym_enabled" type="radio" default="0" label="PLG_SYS_SS_YM_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="ym_enabled" type="radio" default="0" label="PLG_SYS_SS_YM_ENABLED" description="PLG_SYS_SS_ENABLED_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
@@ -25,7 +25,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
-		<field name="mr_enabled" type="radio" default="0" label="PLG_SYS_SS_MR_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="mr_enabled" type="radio" default="0" label="PLG_SYS_SS_MR_ENABLED" description="PLG_SYS_SS_ENABLED_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
@@ -33,7 +33,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
-		<field name="li_enabled" type="radio" default="0" label="PLG_SYS_SS_LI_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="li_enabled" type="radio" default="0" label="PLG_SYS_SS_LI_ENABLED" description="PLG_SYS_SS_ENABLED_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
@@ -41,7 +41,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>		
-		<field name="ga_enabled" type="radio" default="0" label="PLG_SYS_SS_GA_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="ga_enabled" type="radio" default="0" label="PLG_SYS_SS_GA_ENABLED" description="PLG_SYS_SS_ENABLED_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
@@ -49,13 +49,17 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
+		<field name="pwk_enabled" type="radio" default="0" label="PLG_SYS_SS_PWK_ENABLED" description="PLG_SYS_SS_ENABLED_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+		</field> 
+		<field name="pwk_noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_PWK_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+        </field>
       </fieldset>
 	  
 	  <fieldset name="PLG_SYSTEM_SUNSTAT_GA">
-          <field name="ga_noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_GA_NOINDEX_WRAPPER" description="PLG_SYS_SS_GA_NOINDEX_WRAPPER_DESC">
-              <option value="0">JNo</option>
-              <option value="1">JYes</option>
-          </field>
 	  <field name="ga_subdomains" type="radio" default="1" label="PLG_SYS_SS_GA_SUBDOMAINS" description="PLG_SYS_SS_GA_SUBDOMAINS_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
@@ -76,10 +80,6 @@
 		
       <fieldset name="PLG_SYSTEM_SUNSTAT_YM">
 	  <field name="ym_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_YM_ID" description="PLG_SYS_SS_YM_ID_DESC"></field>
-          <field name="noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_YM_NOINDEX_WRAPPER" description="PLG_SYS_SS_YM_NOINDEX_WRAPPER_DESC">
-              <option value="0">JNo</option>
-              <option value="1">JYes</option>
-          </field>
 	  <field name="ym_webvisor" type="radio" default="1" label="PLG_SYS_SS_YM_WEBVISOR" description="PLG_SYS_SS_YM_WEBVISOR_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
@@ -103,18 +103,10 @@
 		</fieldset>
 		
 		<fieldset name="PLG_SYSTEM_SUNSTAT_MR">
-	  <field name="mr_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_MR_ID" description="PLG_SYS_SS_MR_ID_DESC"></field>
-          <field name="mr_noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_MR_NOINDEX_WRAPPER" description="PLG_SYS_SS_MR_NOINDEX_WRAPPER_DESC">
-              <option value="0">JNo</option>
-              <option value="1">JYes</option>
-          </field>
+		<field name="mr_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_MR_ID" description="PLG_SYS_SS_MR_ID_DESC"></field>
 		</fieldset>
 		
 	<fieldset name="PLG_SYSTEM_SUNSTAT_PWK">
-          <field name="pwk_noindexWrapper" type="radio" default="1" label="PLG_SYS_SS_PWK_NOINDEX_WRAPPER" description="PLG_SYS_SS_PWK_NOINDEX_WRAPPER_DESC">
-              <option value="0">JNo</option>
-              <option value="1">JYes</option>
-          </field>
 	  <field name="pwk_subdomains" type="radio" default="1" label="PLG_SYS_SS_PWK_SUBDOMAINS" description="PLG_SYS_SS_PWK_SUBDOMAINS_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
