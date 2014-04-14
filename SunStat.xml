@@ -60,19 +60,20 @@
       </fieldset>
 	  
 	  <fieldset name="PLG_SYSTEM_SUNSTAT_GA">
+	  <field name="ga_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_GA_ID" description="PLG_SYS_SS_GA_ID_DESC"></field>
 	  <field name="ga_subdomains" type="radio" default="1" label="PLG_SYS_SS_GA_SUBDOMAINS" description="PLG_SYS_SS_GA_SUBDOMAINS_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
-		<field name="ga_addDomain" type="radio" default="1" label="PLG_SYS_SS_GA_ADDDOMAIN" description="PLG_SYS_SS_PWK_ADDDOMAIN_DESC">
+		<field name="ga_addDomain" type="radio" default="1" label="PLG_SYS_SS_GA_ADDDOMAIN" description="PLG_SYS_SS_GA_ADDDOMAIN_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
-        <field name="ga_linksOut" type="radio" default="1" label="PLG_SYS_SS_PWK_OUTLINKS" description="PLG_SYS_SS_PWK_OUTLINKS_DESC">
+        <field name="ga_linksOut" type="radio" default="1" label="PLG_SYS_SS_GA_OUTLINKS" description="PLG_SYS_SS_GA_OUTLINKS_DESC">
             <option value="0">JNo</option>
             <option value="1">JYes</option>
         </field>
-        <field name="ga_address" type="radio" default="0" label="PLG_SYS_SS_PWK_ADDRESS" description="PLG_SYS_SS_PWK_ADDRESS_DESC">
+        <field name="ga_address" type="radio" default="0" label="PLG_SYS_SS_GA_ADDRESS" description="PLG_SYS_SS_GA_ADDRESS_DESC">
             <option value="0">JNo</option>
             <option value="1">JYes</option>
         </field>
