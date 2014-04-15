@@ -65,10 +65,11 @@ class plgSystemMailRu extends JPlugin
 		//piwik
 		$pwk_enabled = $this->params->get( 'pwk_enabled', '' );
 		$pwk_noIndexWrapper = $this->params->get( 'pwk_noindexWrapper', '1' );
-		$pwk_enabled = $this->params->get( 'pwk_enabled', '' );
-		$pwk_enabled = $this->params->get( 'pwk_enabled', '' );
-		$pwk_enabled = $this->params->get( 'pwk_enabled', '' );
-		$pwk_enabled = $this->params->get( 'pwk_enabled', '' );
+		$pwk_subdomains = $this->params->get( 'pwk_subdomains', '' );
+		$pwk_addDomain = $this->params->get( 'pwk_addDomain', '' );
+		$pwk_linksOut = $this->params->get( 'pwk_linksOut', '' );
+		$pwk_address = $this->params->get( 'pwk_address', '' );
+		$pwk_domain = $this->params->get( 'pwk_domain', '' );
 		//liveinternet
 		$li_enabled = $this->params->get( 'li_enabled', '' );
 		$li_noIndexWrapper = $this->params->get( 'li_noindexWrapper', '1' );
@@ -87,7 +88,7 @@ class plgSystemMailRu extends JPlugin
 		if($ga_noIndexWrapper) $ga = '<!--noindex-->' . $ga . '<!--/noindex-->';
 		$li = '<!--LiveInternet counter--><script type="text/javascript"><!--new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();//--></script><!--/LiveInternet-->';
 		if($li_noIndexWrapper) $li = '<!--noindex-->' . $li . '<!--/noindex-->';
-		$pwk = '<!-- Piwik --><script type="text/javascript">  var _paq = _paq || [];  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);  _paq.push(["setCookieDomain", "*.club.sunlife-fm.org"]);  _paq.push(["setDomains", ["*.club.sunlife-fm.org"]]);  _paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://isp.soclan.ru/stats/";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", "1"]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><!-- End Piwik Code -->'
+		$pwk = '<!-- Piwik --><script type="text/javascript">  var _paq = _paq || [];  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);  _paq.push(["setCookieDomain", *.'.$pwk_domain.'"]);  _paq.push(["setDomains", ["*.'.$pwk_domain.'"]]);  _paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://'.$pwk_address.'";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", "1"]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><!-- End Piwik Code -->'
 		if($pwk_noIndexWrapper) $pwk = '<!--noindex-->' . $pwk . '<!--/noindex-->';
 		
 		//is it enabled?
