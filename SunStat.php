@@ -88,11 +88,7 @@ class plgSystemMailRu extends JPlugin
 		if($ga_noIndexWrapper) $ga = '<!--noindex-->' . $ga . '<!--/noindex-->';
 		$li = '<!--LiveInternet counter--><script type="text/javascript"><!--new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();//--></script><!--/LiveInternet-->';
 		if($li_noIndexWrapper) $li = '<!--noindex-->' . $li . '<!--/noindex-->';
-<<<<<<< HEAD
 		$pwk = '<!-- Piwik --><script type="text/javascript">  var _paq = _paq || [];  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);  _paq.push(["setCookieDomain", *.'.$pwk_domain.'"]);  _paq.push(["setDomains", ["*.'.$pwk_domain.'"]]);  _paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://'.$pwk_address.'";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", "1"]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><!-- End Piwik Code -->';
-=======
-		$pwk = '<!-- Piwik --><script type="text/javascript">  var _paq = _paq || [];  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);  _paq.push(["setCookieDomain", *.'.$pwk_domain.'"]);  _paq.push(["setDomains", ["*.'.$pwk_domain.'"]]);  _paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://'.$pwk_address.'";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", "1"]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><!-- End Piwik Code -->'
->>>>>>> ad8a418e585bbeb95e6fb4e2d9df4e06ec32de3f
 		if($pwk_noIndexWrapper) $pwk = '<!--noindex-->' . $pwk . '<!--/noindex-->';
 		
 		//is it enabled?
