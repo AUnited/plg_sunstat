@@ -26,7 +26,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 jimport( 'joomla.plugin.plugin');
 
-class plgSystemMailRu extends JPlugin
+class plgSystemSunStat extends JPlugin
 {
 	function plgSunStat(&$subject, $config)
 	{		
