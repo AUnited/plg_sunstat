@@ -80,7 +80,7 @@ class plgSystemSunStat extends JPlugin
 		//embed code
         $noIndex = $noIndex ? 'ut:"noindex",' : '';
 
-        $mr = '<!-- Rating@Mail.ru counter --><script type="text/javascript">//<![CDATA[var _tmr = _tmr || [];_tmr.push({id: '.$mr_id.', type: "pageView", start: (new Date()).getTime()});(function (d, w) {   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }})(document, window);//]]></script><noscript><div style="position:absolute;left:-10000px;"><img src="//top-fwz1.mail.ru/counter?id='.$mr_id.';js=na" style="border:0;" height="1" width="1" alt="Рейтинг@Mail.ru" /></noscript><!-- //Rating@Mail.ru counter -->';
+        $mr = '<!-- Rating@Mail.ru counter --><script type="text/javascript">//<![CDATA[var _tmr = _tmr || [];_tmr.push({id: '.$mr_id.', type: "pageView", start: (new Date()).getTime()});(function (d, w) {   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }})(document, window);//]]></script><noscript><div style="position:absolute;left:-10000px;"><img src="//top-fwz1.mail.ru/counter?id='.$mr_id.';js=na" style="border:0;" height="1" width="1" alt="Rating@Mail.ru" /></noscript><!-- //Rating@Mail.ru counter -->';
 		if($mr_noIndexWrapper) $mr = '<!--noindex-->' . $mr . '<!--/noindex-->';
 		$ym = '<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter' . $ym_id . ' = new Ya.Metrika({id:' . $ym_id . ', clickmap:' . $ym_clickMap . ', trackLinks:' . $ym_linksOut . ', accurateTrackBounce:' . $ym_accurateTrackBounce  . ','. $ym_noIndex . ' webvisor:' . $ym_webvisor . '}); } catch(e) {} }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/' . $ym_id . '" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->';
 		if($ym_noIndexWrapper) $ym = '<!--noindex-->' . $ym . '<!--/noindex-->';
@@ -93,11 +93,13 @@ class plgSystemSunStat extends JPlugin
 		
 		//is it enabled?
 		$javascript='';
-        if ($mr_enabled) $javascript= $mr.$javascript;
-		if ($ym_enabled) $javascript= $ym.$javascript;
-		if ($ga_enabled) $javascript= $ga.$javascript;
-		if ($li_enabled) $javascript= $li.$javascript;
-		if ($pwk_enabled) $javascript= $pwk.$javascript;
+		$space='
+		';
+        if ($mr_enabled) $javascript= $javascript.$space.$mr;
+		if ($ym_enabled) $javascript= $javascript.$space.$ym;
+		if ($ga_enabled) $javascript= $javascript.$space.$ga;
+		if ($li_enabled) $javascript= $javascript.$space.$li;
+		if ($pwk_enabled) $javascript= $javascript.$space.$pwk;
 
 		$buffer = preg_replace ("/<\/body>/", $javascript."\n\n</body>", $buffer);
 		
