@@ -97,7 +97,7 @@
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
-		<field name="pwk_addDomain" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_PWK_ADDDOMAIN" description="PLG_SYS_SS_PWK_ADDDOMAIN_DESC">
+		<field name="pwk_domain" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_PWK_DOMAIN" description="PLG_SYS_SS_PWK_DOMAIN_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
