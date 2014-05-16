@@ -74,6 +74,11 @@
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
+		<field name="ym_noIndex" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_YM_NOINDEX" description="PLG_SYS_SS_YM_NOINDEX_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+        </field>
+
         <field name="ym_linksOut" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_YM_OUTLINKS" description="PLG_SYS_SS_YM_OUTLINKS_DESC">
             <option value="0">JNo</option>
             <option value="1">JYes</option>
