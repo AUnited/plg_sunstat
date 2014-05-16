@@ -61,6 +61,9 @@ class plgSystemSunStat extends JPlugin
 		$ga_noIndexWrapper 		= $this->params->get( 'ga_noindexWrapper', '1' );
 		$ga_id 					= $this->params->get( 'ga_id', '' );
 		$ga_domain 				= $this->params->get( 'ga_domain', '' );
+		$ga_uid 				= $this->params->get( 'ga_uid', '' );
+		$ga_demographic			= $this->params->get( 'ga_demographic', '' );
+		$ga_extattrib			= $this->params->get( 'ga_extattrib', '' );
 		//piwik
 		$pwk_enabled 			= $this->params->get( 'pwk_enabled', '' );
 		$pwk_noIndexWrapper 	= $this->params->get( 'pwk_noindexWrapper', '1' );
@@ -77,9 +80,12 @@ class plgSystemSunStat extends JPlugin
 		$buffer = JResponse::getBody();
 		
 		//Extended functions
-		if ($pwk_linksOut) $pwk_ef_linksOut='_paq.push(["setDomains", ["*.'.$pwk_domain.'"]]); '; else $pwk_ef_linksOut='';
-		if ($pwk_subdomains) $pwk_ef_subdomains='_paq.push(["setCookieDomain", "*.'.$pwk_domain.'"]); '; else $pwk_ef_subdomains='';
-		if ($pwk_addDomain) $pwk_ef_addDomain='_paq.push(["setDocumentTitle", document.domain + "/" + document.title]); '; else $pwk_ef_addDomain='';
+		if ($ga_demographic)$ga_ef_demographic	="ga('require', 'displayfeatures');" 										 else $ga_ef_demographic='';
+		if ($ga_extattrib) 	$ga_ef_extattrib	="ga('require', 'linkid', 'linkid.js');"									 else $ga_ef_extattrib='';
+		if ($ga_uid) 		$ga_ef_uid			='ga(‘set’, ‘&uid’, {{USER_ID}});'; 										 else $ga_ef_uid='';
+		if ($pwk_linksOut) 	$pwk_ef_linksOut	='_paq.push(["setDomains", ["*.'.$pwk_domain.'"]]); '; 						 else $pwk_ef_linksOut='';
+		if ($pwk_subdomains)$pwk_ef_subdomains	='_paq.push(["setCookieDomain", "*.'.$pwk_domain.'"]); '; 					 else $pwk_ef_subdomains='';
+		if ($pwk_addDomain)	$pwk_ef_addDomain	='_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);'; else $pwk_ef_addDomain='';
 		//embed code
 		$noIndex = $noIndex ? 'ut:"noindex",' : '';
 
@@ -87,7 +93,7 @@ class plgSystemSunStat extends JPlugin
 		if($mr_noIndexWrapper) $mr = '<!--noindex-->' . $mr . '<!--/noindex-->';
 		$ym		= '<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter' . $ym_id . ' = new Ya.Metrika({id:' . $ym_id . ', clickmap:' . $ym_clickMap . ', trackLinks:' . $ym_linksOut . ', accurateTrackBounce:' . $ym_accurateTrackBounce  . ','. $ym_noIndex . ' webvisor:' . $ym_webvisor . '}); } catch(e) {} }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/' . $ym_id . '" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->';
 		if($ym_noIndexWrapper) $ym = '<!--noindex-->' . $ym . '<!--/noindex-->';
-		$ga		= "<!-- Google Analytics counter --><script type='text/javascript'>  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-".$ga_id."]);  _gaq.push(['_setDomainName', 'none']);  _gaq.push(['_setAllowLinker', true]);_gaq.push(['_addDevId', 'YogEE'],['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script><!-- End of Google Analytics code -->";		
+		$ga		= "<!-- Google Analytics counter --><script type='text/javascript'>  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)  })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-".$ga_id."', '".$ga_domain."'); ".$ga_ef_demographic.$ga_ef_extattrib." ga('send', 'pageview'); ".$ga_ef_uid." </script><!-- End of Google Analytics code -->";		
 		if($ga_noIndexWrapper) $ga = '<!--noindex-->' . $ga . '<!--/noindex-->';
 		$li		= '<!-- LiveInternet counter --><script type="text/javascript"><!--new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();//--></script><!-- /LiveInternet counter -->';
 		if($li_noIndexWrapper) $li = '<!--noindex-->' . $li . '<!--/noindex-->';

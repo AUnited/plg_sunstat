@@ -62,6 +62,19 @@
 	  <fieldset name="PLG_SYSTEM_SUNSTAT_GA">
 	  <field name="ga_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_GA_ID" description="PLG_SYS_SS_GA_ID_DESC"></field>
 	  <field name="ga_domain" type="text" default="example.com" label="PLG_SYS_SS_GA_DOMAIN" description="PLG_SYS_SS_GA_DOMAIN_DESC"></field>
+	  <field name="ga_demographic" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_GA_DEMOGRAPHIC" description="PLG_SYS_SS_GA_DEMOGRAPHIC_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+      </field>
+	  <field name="ga_extattrib" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_GA_EXTATTRIB" description="PLG_SYS_SS_GA_EXTATTRIB_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+      </field>
+	  <field name="ga_uid" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_GA_UID" description="PLG_SYS_SS_GA_UID_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+      </field>
+
 		</fieldset>
 		
       <fieldset name="PLG_SYSTEM_SUNSTAT_YM">
