@@ -47,7 +47,6 @@ class plgSystemSunStat extends JPlugin
 		$mr_enabled 			= $this->params->get( 'mr_enabled', '' );
 		$mr_noIndexWrapper 		= $this->params->get( 'mr_noindexWrapper', '1' );
 		$mr_id 					= $this->params->get( 'mr_id', '' );
-        $mr_noIndex 			= $this->params->get( 'mr_noIndex', '' );
 		//yandex metrika
 		$ym_enabled 			= $this->params->get( 'ym_enabled', '' );
 		$ym_noIndexWrapper 		= $this->params->get( 'ym_noindexWrapper', '1' );
@@ -65,6 +64,7 @@ class plgSystemSunStat extends JPlugin
 		//piwik
 		$pwk_enabled 			= $this->params->get( 'pwk_enabled', '' );
 		$pwk_noIndexWrapper 	= $this->params->get( 'pwk_noindexWrapper', '1' );
+		$pwk_addDomain			= $this->params->get( 'pwk_addDomain', '' );
 		$pwk_subdomains 		= $this->params->get( 'pwk_subdomains', '' );
 		$pwk_linksOut 			= $this->params->get( 'pwk_linksOut', '' );
 		$pwk_address 			= $this->params->get( 'pwk_address', '' );
@@ -76,8 +76,12 @@ class plgSystemSunStat extends JPlugin
 		//getting body code and storing as buffer
 		$buffer = JResponse::getBody();
 		
+		//Extended functions
+		if ($pwk_linksOut) $pwk_ef_linksOut='_paq.push(["setDomains", ["*.'.$pwk_domain.'"]]); '; else $pwk_ef_linksOut='';
+		if ($pwk_subdomains) $pwk_ef_subdomains='_paq.push(["setCookieDomain", "*.'.$pwk_domain.'"]); '; else $pwk_ef_subdomains='';
+		if ($pwk_addDomain) $pwk_ef_addDomain='_paq.push(["setDocumentTitle", document.domain + "/" + document.title]); '; else $pwk_ef_addDomain='';
 		//embed code
-        $noIndex = $noIndex ? 'ut:"noindex",' : '';
+		$noIndex = $noIndex ? 'ut:"noindex",' : '';
 
         $mr		= '<!-- Rating@Mail.ru counter --><script type="text/javascript">//<![CDATA[var _tmr = _tmr || [];_tmr.push({id: '.$mr_id.', type: "pageView", start: (new Date()).getTime()});(function (d, w) {   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }})(document, window);//]]></script><noscript><div style="position:absolute;left:-10000px;"><img src="//top-fwz1.mail.ru/counter?id='.$mr_id.';js=na" style="border:0;" height="1" width="1" alt="Rating@Mail.ru" /></noscript><!-- /Rating@Mail.ru counter -->';
 		if($mr_noIndexWrapper) $mr = '<!--noindex-->' . $mr . '<!--/noindex-->';
@@ -87,7 +91,7 @@ class plgSystemSunStat extends JPlugin
 		if($ga_noIndexWrapper) $ga = '<!--noindex-->' . $ga . '<!--/noindex-->';
 		$li		= '<!-- LiveInternet counter --><script type="text/javascript"><!--new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();//--></script><!-- /LiveInternet counter -->';
 		if($li_noIndexWrapper) $li = '<!--noindex-->' . $li . '<!--/noindex-->';
-		$pwk	= '<!-- Piwik counter --><script type="text/javascript">  var _paq = _paq || []; _paq.push(["setDocumentTitle", document.domain + "/" + document.title]); _paq.push(["setCookieDomain", "*.'.$pwk_domain.'"]); _paq.push(["setDomains", ["*.'.$pwk_domain.'"]]);  _paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://'.$pwk_address.'/";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", 1]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><noscript><p><img src="http://'.$pwk_domain.'/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript><!-- /Piwik counter -->';
+		$pwk	= '<!-- Piwik counter --><script type="text/javascript">  var _paq = _paq || [];'.$pwk_ef_addDomain.$pwk_ef_subdomains.$pwk_ef_linksOut'_paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://'.$pwk_address.'/";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", 1]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><noscript><p><img src="http://'.$pwk_domain.'/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript><!-- /Piwik counter -->';
 		if($pwk_noIndexWrapper) $pwk = '<!--noindex-->' . $pwk . '<!--/noindex-->';
 		
 		//is it enabled?

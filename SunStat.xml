@@ -5,7 +5,7 @@
   <creationDate>March 2013</creationDate>
   <authorEmail>info@aunited.ru</authorEmail>
   <authorUrl>http://aunited.ru</authorUrl>
-  <version>0.2</version>
+  <version>0.2.1</version>
   <copyright>Copyright (c) 2014 AUnuted. All rights reserved.</copyright>
   <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
   <description>PLG_SUNSTAT_XML_DESCRIPTION</description>
@@ -82,10 +82,6 @@
             <option value="0">JNo</option>
             <option value="1">JYes</option>
         </field>
-        <field name="ym_noIndex" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_YM_NOINDEX" description="PLG_SYS_SS_YM_NOINDEX_DESC">
-            <option value="0">JNo</option>
-            <option value="1">JYes</option>
-        </field>
 		</fieldset>
 		
 		<fieldset name="PLG_SYSTEM_SUNSTAT_MR">
@@ -97,14 +93,19 @@
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
+		<field name="pwk_addDomain" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_PWK_ADDDOMAIN" description="PLG_SYS_SS_PWK_ADDDOMAIN_DESC">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+		</field>
+		<field name="pwk_linksOut" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_PWK_OUTLINKS" description="PLG_SYS_SS_PWK_OUTLINKS_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+        </field>
 		<field name="pwk_domain" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_PWK_DOMAIN" description="PLG_SYS_SS_PWK_DOMAIN_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
-        <field name="pwk_linksOut" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_PWK_OUTLINKS" description="PLG_SYS_SS_PWK_OUTLINKS_DESC">
-            <option value="0">JNo</option>
-            <option value="1">JYes</option>
-        </field>
+
         <field name="pwk_address" type="text" default="example.com" label="PLG_SYS_SS_PWK_ADDRESS" description="PLG_SYS_SS_PWK_ADDRESS_DESC">
         </field>
 		</fieldset>
