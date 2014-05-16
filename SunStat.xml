@@ -2,10 +2,10 @@
 <extension version="1.7" type="plugin" group="system" method="update">
   <name>PLG_SYSTEM_SUNSTAT</name>
   <author>Vitaliy Zhukov</author>
-  <creationDate>March 2013</creationDate>
+  <creationDate>May 2014</creationDate>
   <authorEmail>info@aunited.ru</authorEmail>
   <authorUrl>http://aunited.ru</authorUrl>
-  <version>0.2.1</version>
+  <version>0.3</version>
   <copyright>Copyright (c) 2014 AUnuted. All rights reserved.</copyright>
   <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
   <description>PLG_SUNSTAT_XML_DESCRIPTION</description>

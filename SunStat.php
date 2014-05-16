@@ -1,11 +1,11 @@
 <?php
-# @version		$version 1.0 Amvis United Company Limited  $
-# @copyright	Copyright (C) 2012 AUnited Co Ltd. All rights reserved.
+# @version		$version 0.3 Amvis United Company Limited  $
+# @copyright	Copyright (C) 2014 AUnited Co Ltd. All rights reserved.
 # @license		GNU/GPL, see LICENSE.php
-# Updated		28th Dec 2013
+# Updated		16th May 2014
 #
-# Site: http://amvis.ru
-# Email: info@amvis.ru
+# Site: http://aunited.ru
+# Email: info@aunited.ru
 # Phone
 #
 # Joomla! is free software. This version may have been modified pursuant
