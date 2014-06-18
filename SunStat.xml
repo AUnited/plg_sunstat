@@ -60,6 +60,10 @@
       </fieldset>
 	  
 	  <fieldset name="PLG_SYSTEM_SUNSTAT_GA">
+	  <field name="ga_legacy" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_GA_LEGACY" description="PLG_SYS_SS_GA_LEGACY_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+      </field>
 	  <field name="ga_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_GA_ID" description="PLG_SYS_SS_GA_ID_DESC"></field>
 	  <field name="ga_domain" type="text" default="example.com" label="PLG_SYS_SS_GA_DOMAIN" description="PLG_SYS_SS_GA_DOMAIN_DESC"></field>
 	  <field name="ga_demographic" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_GA_DEMOGRAPHIC" description="PLG_SYS_SS_GA_DEMOGRAPHIC_DESC">
