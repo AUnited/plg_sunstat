@@ -43,6 +43,7 @@ class plgSystemSunStat extends JPlugin
             return;
         }
 		// Initialise variables
+		$noIndex = "";
 		//mailru
 		$mr_enabled 			= $this->params->get( 'mr_enabled', '' );
 		$mr_noIndexWrapper 		= $this->params->get( 'mr_noindexWrapper', '1' );
