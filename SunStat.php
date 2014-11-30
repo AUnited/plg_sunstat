@@ -1,7 +1,7 @@
 <?php
-# @version		$version 0.3 Amvis United Company Limited  $
+# @version		$version 0.5 Amvis United Company Limited  $
 # @copyright	Copyright (C) 2014 AUnited Co Ltd. All rights reserved.
-# @license		GNU/GPL, see LICENSE.php
+# @license		SunStat has been originally created by Vitaliy Zhukov under GNU/GPL and relicensed under Apache v2.0, see LICENSE
 # Updated		16th May 2014
 #
 # Site: http://aunited.ru
