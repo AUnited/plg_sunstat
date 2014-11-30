@@ -89,7 +89,7 @@ class plgSystemSunStat extends JPlugin
 		
 		//Extended functions
 		//Yandex Metrika
-		if ($ym_yaParams !='';)	$ym_ef_yaParams	='var yaParams = {'.$ym_yaParams.'};</script><script type="text/javascript">' and $ym_ef_yaParams2='params:window.yaParams||{ }';	else $ga_ef_yaParams='';
+		if ($ym_yaParams !='';)	$ym_ef_yaParams	='var yaParams = {'.$ym_yaParams.'}; </script><script type="text/javascript">'; and $ym_ef_yaParams2='params:window.yaParams||{ }'; else $ga_ef_yaParams='';
 		if ($ym_webvisor)		$ym_ef_webvisor	="webvisor:true,"; 										 				else $ym_ef_webvisor='';
 		if ($ym_clickMap)		$ym_ef_clickmap	="clickmap:true,"; 										 				else $ym_ef_clickmap='';
 		if ($ym_linksOut)		$ym_ef_linksout	="trackLinks:true,"; 										 			else $ym_ef_linksout='';
