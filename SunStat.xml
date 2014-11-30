@@ -95,7 +95,12 @@
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
+		<field name="ym_yaParams" type="text" default="" label="PLG_SYS_SS_YM_PARAMS" description="PLG_SYS_SS_YM_PARAMS_DESC"></field>
 		<field name="ym_clickMap" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_YM_CLICKMAP" description="PLG_SYS_SS_YM_CLICKMAP_DESC">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+		</field>
+		<field name="ym_trackHash" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_YM_TRACKHASH" description="PLG_SYS_SS_YM_TRACKHASH_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
@@ -103,7 +108,6 @@
             <option value="0">JNo</option>
             <option value="1">JYes</option>
         </field>
-
         <field name="ym_linksOut" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_YM_OUTLINKS" description="PLG_SYS_SS_YM_OUTLINKS_DESC">
             <option value="0">JNo</option>
             <option value="1">JYes</option>
