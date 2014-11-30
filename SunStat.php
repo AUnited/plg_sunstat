@@ -1,7 +1,7 @@
 <?php
-# @version		$version 0.3 Amvis United Company Limited  $
+# @version		$version 0.5 Amvis United Company Limited  $
 # @copyright	Copyright (C) 2014 AUnited Co Ltd. All rights reserved.
-# @license		GNU/GPL, see LICENSE.php
+# @license		SunStat has been originally created by Vitaliy Zhukov under GNU/GPL and relicensed under Apache v2.0, see LICENSE
 # Updated		16th May 2014
 #
 # Site: http://aunited.ru
@@ -20,6 +20,7 @@
 # ga_ = Google
 # pwk_ = Piwik
 # li_ = LiveInternet
+# hl_ = Hotlog
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
@@ -77,6 +78,10 @@ class plgSystemSunStat extends JPlugin
 		//liveinternet
 		$li_enabled 			= $this->params->get( 'li_enabled', '' );
 		$li_noIndexWrapper 		= $this->params->get( 'li_noindexWrapper', '1' );
+		//hotlog
+		$hl_enabled 			= $this->params->get( 'hl_enabled', '' );
+		$hl_noIndexWrapper 		= $this->params->get( 'hl_noindexWrapper', '1' );
+		$hl_id 					= $this->params->get( 'hl_id', '' );
 		
 		//getting body code and storing as buffer
 		$buffer = JResponse::getBody();
@@ -106,6 +111,8 @@ class plgSystemSunStat extends JPlugin
 		if($li_noIndexWrapper) $li = '<!--noindex-->' . $li . '<!--/noindex-->';
 		$pwk	= '<!-- Piwik counter --><script type="text/javascript">  var _paq = _paq || [];'.$pwk_ef_addDomain.$pwk_ef_subdomains.$pwk_ef_linksOut.'_paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://'.$pwk_address.'/";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", 1]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><noscript><p><img src="http://'.$pwk_domain.'/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript><!-- /Piwik counter -->';
 		if($pwk_noIndexWrapper) $pwk = '<!--noindex-->' . $pwk . '<!--/noindex-->';
+		$hl		= "<!-- HotLog counter --><span id='hotlog_counter'></span><span id='hotlog_dyn'></span><script type='text/javascript'> var hot_s = document.createElement('script'); hot_s.type = 'text/javascript'; hot_s.async = true; hot_s.src = 'http://js.hotlog.ru/dcounter/" . $hl_id ."; hot_d = document.getElementById('hotlog_dyn');hot_d.appendChild(hot_s);</script><noscript><a href='http://click.hotlog.ru/?" . $hl_id ."' target='_blank'><img src='http://hit.hotlog.ru/cgi-bin/hotlog/count?s=" . $hl_id ."&amp;im=307' border='0' alt='HotLog'></a></noscript><!-- /HotLog counter -->";
+		if($hl_noIndexWrapper) $hl = '<!--noindex-->' . $hl . '<!--/noindex-->';
 		
 		//is it enabled?
 		$javascript='';
@@ -116,6 +123,7 @@ class plgSystemSunStat extends JPlugin
 		if ($ga_enabled)	$javascript= $javascript.$space.$ga;
 		if ($li_enabled)	$javascript= $javascript.$space.$li;
 		if ($pwk_enabled)	$javascript= $javascript.$space.$pwk;
+		if ($hl_enabled)	$javascript= $javascript.$space.$hl;
 
 		$buffer = preg_replace ("/<\/body>/", $javascript."\n\n</body>", $buffer);
 		
