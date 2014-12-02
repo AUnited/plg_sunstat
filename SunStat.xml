@@ -5,7 +5,7 @@
   <creationDate>December 2014</creationDate>
   <authorEmail>info@aunited.ru</authorEmail>
   <authorUrl>http://aunited.ru</authorUrl>
-  <version>0.5</version>
+  <version>0.5.1</version>
   <copyright>Copyright (c) 2014 AUnuted. All rights reserved.</copyright>
   <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
   <description>PLG_SUNSTAT_XML_DESCRIPTION</description>
@@ -67,7 +67,7 @@
         </field>
       </fieldset>
 	  
-	  <fieldset name="PLG_SYSTEM_SUNSTAT_GA">
+	<fieldset name="PLG_SYSTEM_SUNSTAT_GA">
 	  <field name="ga_legacy" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_GA_LEGACY" description="PLG_SYS_SS_GA_LEGACY_DESC">
             <option value="0">JNo</option>
             <option value="1">JYes</option>
@@ -89,13 +89,18 @@
 
 		</fieldset>
 		
-      <fieldset name="PLG_SYSTEM_SUNSTAT_YM">
+	<fieldset name="PLG_SYSTEM_SUNSTAT_YM">
 	  <field name="ym_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_YM_ID" description="PLG_SYS_SS_YM_ID_DESC"></field>
 	  <field name="ym_webvisor" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_YM_WEBVISOR" description="PLG_SYS_SS_YM_WEBVISOR_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
+		<field name="ym_yaParams" type="text" default="" label="PLG_SYS_SS_YM_PARAMS" description="PLG_SYS_SS_YM_PARAMS_DESC"></field>
 		<field name="ym_clickMap" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_YM_CLICKMAP" description="PLG_SYS_SS_YM_CLICKMAP_DESC">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+		</field>
+		<field name="ym_trackHash" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_YM_TRACKHASH" description="PLG_SYS_SS_YM_TRACKHASH_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
@@ -103,7 +108,6 @@
             <option value="0">JNo</option>
             <option value="1">JYes</option>
         </field>
-
         <field name="ym_linksOut" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_YM_OUTLINKS" description="PLG_SYS_SS_YM_OUTLINKS_DESC">
             <option value="0">JNo</option>
             <option value="1">JYes</option>
@@ -114,7 +118,7 @@
         </field>
 		</fieldset>
 		
-		<fieldset name="PLG_SYSTEM_SUNSTAT_MR">
+	<fieldset name="PLG_SYSTEM_SUNSTAT_MR">
 		<field name="mr_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_MR_ID" description="PLG_SYS_SS_MR_ID_DESC"></field>
 		</fieldset>
 		
@@ -136,10 +140,14 @@
         <field name="pwk_address" type="text" default="example.com" label="PLG_SYS_SS_PWK_ADDRESS" description="PLG_SYS_SS_PWK_ADDRESS_DESC">
         </field>
 		</fieldset>
-		
-		<fieldset name="PLG_SYSTEM_SUNSTAT_HL">
+	
+	<fieldset name="PLG_SYSTEM_SUNSTAT_HL">
 		<field name="hl_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_HL_ID" description="PLG_SYS_SS_HL_ID_DESC"></field>
 		</fieldset>
+		<field name="hl_noIndex" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_HL_NOINDEX" description="PLG_SYS_SS_HL_NOINDEX_DESC">
+            <option value="0">JNo</option>
+            <option value="1">JYes</option>
+        </field>
 		
     </fields>
   </config>
