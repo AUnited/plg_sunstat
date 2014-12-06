@@ -61,7 +61,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
-		<field name="mr_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_HL_NOINDEX_WRAPPER" description="PLG_SYS_HL_NOINDEX_WRAPPER_DESC">
+		<field name="hl_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_HL_NOINDEX_WRAPPER" description="PLG_SYS_HL_NOINDEX_WRAPPER_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
@@ -144,10 +144,7 @@
 	<fieldset name="PLG_SYSTEM_SUNSTAT_HL">
 		<field name="hl_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_HL_ID" description="PLG_SYS_SS_HL_ID_DESC"></field>
 		</fieldset>
-		<field name="hl_noIndex" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_HL_NOINDEX" description="PLG_SYS_SS_HL_NOINDEX_DESC">
-            <option value="0">JNo</option>
-            <option value="1">JYes</option>
-        </field>
+
 		
     </fields>
   </config>
