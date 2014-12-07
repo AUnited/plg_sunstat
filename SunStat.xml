@@ -61,7 +61,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
-		<field name="hl_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_HL_NOINDEX_WRAPPER" description="PLG_SYS_HL_NOINDEX_WRAPPER_DESC">
+		<field name="hl_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_HL_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
