@@ -57,7 +57,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
-		<field name="hl_enabled" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_HL_ENABLED" description="PLG_SYS_ENABLED_DESC">
+		<field name="hl_enabled" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_HL_ENABLED" description="PLG_SYS_SS_ENABLED_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
