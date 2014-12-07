@@ -5,7 +5,7 @@
   <creationDate>December 2014</creationDate>
   <authorEmail>info@aunited.ru</authorEmail>
   <authorUrl>http://aunited.ru</authorUrl>
-  <version>0.5.1</version>
+  <version>0.5.2</version>
   <copyright>Copyright (c) 2014 AUnuted. All rights reserved.</copyright>
   <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
   <description>PLG_SUNSTAT_XML_DESCRIPTION</description>
@@ -57,7 +57,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
-		<field name="hl_enabled" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_HL_ENABLED" description="PLG_SYS_HL_ENABLED_DESC">
+		<field name="hl_enabled" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_HL_ENABLED" description="PLG_SYS_ENABLED_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
