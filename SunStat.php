@@ -89,13 +89,14 @@ class plgSystemSunStat extends JPlugin
 		
 		//Extended functions
 		//Yandex Metrika
-		if ($ym_yaParams !='')	{$ym_ef_yaParams	='<script type="text/javascript">var yaParams = {'.$ym_yaParams.'};</script>';  $ym_ef_yaParams2='params:window.yaParams||{ }';} else $ga_ef_yaParams='';
+		if ($ym_yaParams !=''){$ym_ef_yaParams='<script type="text/javascript">var yaParams = {'.$ym_yaParams.'};</script>'; $ym_ef_yaParams2='params:window.yaParams||{ }';} else 
+		{$ga_ef_yaParams=''; $ga_ef_yaParams2='';};
 		if ($ym_webvisor)		$ym_ef_webvisor	="webvisor:true, "; 										 				else $ym_ef_webvisor='';
 		if ($ym_clickMap)		$ym_ef_clickmap	="clickmap:true, "; 										 				else $ym_ef_clickmap='';
 		if ($ym_linksOut)		$ym_ef_linksout	="trackLinks:true, "; 										 			else $ym_ef_linksout='';
 		if ($ym_accurateTrackBounce) $ym_ef_atb	="accurateTrackBounce:true, "; 											else $ym_ef_atb='';
 		if ($ym_ym_trackHash)	$ym_ef_trackhash="accurateTrackBounce:true, "; 											else $ym_ef_trackhash='';
-		if ($ym_noIndex)		{$ym_ef_noindex	='ut:"noindex", '; $ym_ef_noindex2='?ut=noindex';} 									else $ym_ef_noindex='';
+		if ($ym_noIndex)		{$ym_ef_noindex	='ut:"noindex", '; $ym_ef_noindex2='?ut=noindex';} 									else {$ym_ef_noindex=''; $ym_ef_noindex2='';};
 		//Google Analytics
 		if ($ga_demographic)$ga_ef_demographic	="ga('require', 'displayfeatures');"; 										 else $ga_ef_demographic='';
 		if ($ga_extattrib) 	$ga_ef_extattrib	="ga('require', 'linkid', 'linkid.js');";									 else $ga_ef_extattrib='';
@@ -108,7 +109,7 @@ class plgSystemSunStat extends JPlugin
 		if ($pwk_subdomains)$pwk_ef_subdomains	='_paq.push(["setCookieDomain", "*.'.$pwk_domain.'"]); '; 					 else $pwk_ef_subdomains='';
 		if ($pwk_addDomain)	$pwk_ef_addDomain	='_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);'; else $pwk_ef_addDomain='';
 
-        $mr		= '<!-- Rating@Mail.ru counter --><script type="text/javascript">//<![CDATA[var _tmr = _tmr || [];_tmr.push({id: '.$mr_id.', type: "pageView", start: (new Date()).getTime()});(function (d, w) {   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }})(document, window);//]]></script><noscript><div style="position:absolute;left:-10000px;"><img src="//top-fwz1.mail.ru/counter?id='.$mr_id.';js=na" style="border:0;" height="1" width="1" alt="Rating@Mail.ru" /></noscript><!-- /Rating@Mail.ru counter -->';
+        $mr		= '<!-- Rating Mail.ru counter --><script type="text/javascript">//<![CDATA[var _tmr = _tmr || [];_tmr.push({id: '.$mr_id.', type: "pageView", start: (new Date()).getTime()});(function (d, w) {   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }})(document, window);//]]></script><noscript><div style="position:absolute;left:-10000px;"><img src="//top-fwz1.mail.ru/counter?id='.$mr_id.';js=na" style="border:0;" height="1" width="1" alt="Rating Mail.ru" /></noscript><!-- /Rating Mail.ru counter -->';
 		if($mr_noIndexWrapper) $mr = '<!--noindex-->' . $mr . '<!--/noindex-->';
 		$ym		= '<!-- Yandex.Metrika counter -->' . $ym_ef_yaParams . '<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter' . $ym_id . ' = new Ya.Metrika({id:' . $ym_id . ', ' .$ym_ef_webvisor.$ym_ef_clickmap.$ym_ef_linksout.$ym_ef_atb.$ym_ef_trackhash.$ym_ef_noindex.$ym_ef_yaParams2.'}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/' . $ym_id .$ym_ef_noindex2. '" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->';
 		if($ym_noIndexWrapper) $ym = '<!--noindex-->' . $ym . '<!--/noindex-->';
