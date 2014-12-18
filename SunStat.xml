@@ -65,6 +65,14 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
+		<field name="rr_enabled" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_RR_ENABLED" description="PLG_SYS_SS_ENABLED_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+		</field> 
+		<field name="rr_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_RR_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+              <option value="0">JNo</option>
+              <option value="1">JYes</option>
+        </field>
       </fieldset>
 	  
 	<fieldset name="PLG_SYSTEM_SUNSTAT_GA">
@@ -140,12 +148,15 @@
         <field name="pwk_address" type="text" default="example.com" label="PLG_SYS_SS_PWK_ADDRESS" description="PLG_SYS_SS_PWK_ADDRESS_DESC">
         </field>
 		</fieldset>
-	
+		
 	<fieldset name="PLG_SYSTEM_SUNSTAT_HL">
 		<field name="hl_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_HL_ID" description="PLG_SYS_SS_HL_ID_DESC"></field>
 		</fieldset>
-
 		
+	<fieldset name="PLG_SYSTEM_SUNSTAT_RR">
+		<field name="rr_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_RR_ID" description="PLG_SYS_SS_RR_ID_DESC"></field>
+		</fieldset>
+	
     </fields>
   </config>
     <updateservers>
