@@ -1,5 +1,5 @@
 <?php
-# @version		$version 0.5.1 Amvis United Company Limited  $
+# @version		$version 0.6 Amvis United Company Limited  $
 # @copyright	Copyright (C) 2014 AUnited Co Ltd. All rights reserved.
 # @license		SunStat has been originally created by Vitaliy Zhukov under GNU/GPL and relicensed under Apache v2.0, see LICENSE
 # Updated		1st December 2014
@@ -21,6 +21,7 @@
 # pwk_ = Piwik
 # li_ = LiveInternet
 # hl_ = Hotlog
+# rr_ = Rambler
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
@@ -83,6 +84,10 @@ class plgSystemSunStat extends JPlugin
 		$hl_enabled 			= $this->params->get( 'hl_enabled', '' );
 		$hl_noIndexWrapper 		= $this->params->get( 'hl_noindexWrapper', '1' );
 		$hl_id 					= $this->params->get( 'hl_id', '' );
+		//rambler
+		$rr_enabled 			= $this->params->get( 'rr_enabled', '' );
+		$rr_noIndexWrapper 		= $this->params->get( 'rr_noindexWrapper', '1' );
+		$rr_id 					= $this->params->get( 'rr_id', '' );
 		
 		//getting body code and storing as buffer
 		$buffer = JResponse::getBody();
@@ -90,12 +95,12 @@ class plgSystemSunStat extends JPlugin
 		//Extended functions
 		//Yandex Metrika
 		if ($ym_yaParams !=''){$ym_ef_yaParams='<script type="text/javascript">var yaParams = {'.$ym_yaParams.'};</script>'; $ym_ef_yaParams2='params:window.yaParams||{ }';} else 
-		{$ga_ef_yaParams=''; $ga_ef_yaParams2='';};
+		{$ym_ef_yaParams=''; $ym_ef_yaParams2='';};
 		if ($ym_webvisor)		$ym_ef_webvisor	="webvisor:true, "; 										 				else $ym_ef_webvisor='';
 		if ($ym_clickMap)		$ym_ef_clickmap	="clickmap:true, "; 										 				else $ym_ef_clickmap='';
 		if ($ym_linksOut)		$ym_ef_linksout	="trackLinks:true, "; 										 			else $ym_ef_linksout='';
 		if ($ym_accurateTrackBounce) $ym_ef_atb	="accurateTrackBounce:true, "; 											else $ym_ef_atb='';
-		if ($ym_ym_trackHash)	$ym_ef_trackhash="accurateTrackBounce:true, "; 											else $ym_ef_trackhash='';
+		if ($ym_trackHash)	$ym_ef_trackhash="accurateTrackBounce:true, "; 											else $ym_ef_trackhash='';
 		if ($ym_noIndex)		{$ym_ef_noindex	='ut:"noindex", '; $ym_ef_noindex2='?ut=noindex';} 									else {$ym_ef_noindex=''; $ym_ef_noindex2='';};
 		//Google Analytics
 		if ($ga_demographic)$ga_ef_demographic	="ga('require', 'displayfeatures');"; 										 else $ga_ef_demographic='';
@@ -122,6 +127,8 @@ class plgSystemSunStat extends JPlugin
 		if($pwk_noIndexWrapper) $pwk = '<!--noindex-->' . $pwk . '<!--/noindex-->';
 		$hl		= "<!-- HotLog counter --><span id='hotlog_counter'></span><span id='hotlog_dyn'></span><script type='text/javascript'> var hot_s = document.createElement('script'); hot_s.type = 'text/javascript'; hot_s.async = true; hot_s.src = 'http://js.hotlog.ru/dcounter/" . $hl_id ."; hot_d = document.getElementById('hotlog_dyn');hot_d.appendChild(hot_s);</script><noscript><a href='http://click.hotlog.ru/?" . $hl_id ."' target='_blank'><img src='http://hit.hotlog.ru/cgi-bin/hotlog/count?s=" . $hl_id ."&amp;im=307' border='0' alt='HotLog'></a></noscript><!-- /HotLog counter -->";
 		if($hl_noIndexWrapper) $hl = '<!--noindex-->' . $hl . '<!--/noindex-->';
+		$rr		= '<!-- Rambler counter --><script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?'. $rr_id .'"></script><noscript><a href="http://top100.rambler.ru/navi/'. $rr_id .'/"><img src="http://counter.rambler.ru/top100.cnt?'. $rr_id .'" alt="Ramblers Top100" border="0" /></a><!-- /Rambler counter -->';
+		if($rr_noIndexWrapper) $rr = '<!--noindex-->' . $rr . '<!--/noindex-->';
 		
 		//is it enabled?
 		$javascript='';
@@ -133,6 +140,7 @@ class plgSystemSunStat extends JPlugin
 		if ($li_enabled)	$javascript= $javascript.$space.$li;
 		if ($pwk_enabled)	$javascript= $javascript.$space.$pwk;
 		if ($hl_enabled)	$javascript= $javascript.$space.$hl;
+		if ($rr_enabled)	$javascript= $javascript.$space.$rr;
 
 		$buffer = preg_replace ("/<\/body>/", $javascript."\n\n</body>", $buffer);
 		
