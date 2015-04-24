@@ -5,7 +5,7 @@
   <creationDate>December 2014</creationDate>
   <authorEmail>info@aunited.ru</authorEmail>
   <authorUrl>http://aunited.ru</authorUrl>
-  <version>0.6</version>
+  <version>0.7</version>
   <copyright>Copyright (c) 2014 AUnuted. All rights reserved.</copyright>
   <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
   <description><![CDATA[PLG_SUNSTAT_XML_DESCRIPTION]]></description>
@@ -134,7 +134,7 @@
 		
 	<fieldset name="PLG_SYSTEM_SUNSTAT_MR">
 		<field name="mr_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_MR_ID" description="PLG_SYS_SS_MR_ID_DESC"></field>
-		</fieldset>
+	</fieldset>
 		
 	<fieldset name="PLG_SYSTEM_SUNSTAT_PWK">
 	  <field name="pwk_subdomains" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_PWK_SUBDOMAINS" description="PLG_SYS_SS_PWK_SUBDOMAINS_DESC">
