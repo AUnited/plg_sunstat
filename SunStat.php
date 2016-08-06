@@ -80,6 +80,9 @@ class plgSystemSunStat extends JPlugin
 		//liveinternet
 		$li_enabled 			= $this->params->get( 'li_enabled', '' );
 		$li_noIndexWrapper 		= $this->params->get( 'li_noindexWrapper', '1' );
+		//liveinternet
+		$os_enabled 			= $this->params->get( 'os_enabled', '' );
+		$os_noIndexWrapper 		= $this->params->get( 'os_noindexWrapper', '1' );
 		//hotlog
 		$hl_enabled 			= $this->params->get( 'hl_enabled', '' );
 		$hl_noIndexWrapper 		= $this->params->get( 'hl_noindexWrapper', '1' );
@@ -121,6 +124,8 @@ class plgSystemSunStat extends JPlugin
 		$ga		= "<!-- Universal Analytics counter --><script type='text/javascript'>  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)  })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-".$ga_id."', '".$ga_domain."'); ".$ga_ef_demographic.$ga_ef_extattrib." ga('send', 'pageview'); ".$ga_ef_uid." </script><!-- /Universal Analytics counter -->";	
 		if($ga_legacy) $ga = "<!-- Google Analytics counter --><script type='text/javascript'>  var _gaq = _gaq || [];".$ga_ef_extattrib.$ga_ef_uid." _gaq.push(['_setAccount', 'UA-".$ga_id."]);  _gaq.push(['_setDomainName', 'none']);  _gaq.push(['_setAllowLinker', true]);_gaq.push(['_addDevId', 'YogEE'],['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;"    .$gal_ef_demographic.   " var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script><!-- /Google Analytics counter -->";
 		if($ga_noIndexWrapper) $ga = '<!--noindex-->' . $ga . '<!--/noindex-->';
+		$os		= '<!--Openstat--><span id="openstat1"></span><script type="text/javascript">var openstat = { counter: 1, next: openstat };(function(d, t, p) {var j = d.createElement(t); j.async = true; j.type = "text/javascript";j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);})(document, "script", document.location.protocol);</script><!--/Openstat-->';
+		if($os_noIndexWrapper) $li = '<!--noindex-->' . $os . '<!--/noindex-->';
 		$li		= '<!-- LiveInternet counter --><script type="text/javascript"><!--new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();//--></script><!-- /LiveInternet counter -->';
 		if($li_noIndexWrapper) $li = '<!--noindex-->' . $li . '<!--/noindex-->';
 		$pwk	= '<!-- Piwik counter --><script type="text/javascript">  var _paq = _paq || [];'.$pwk_ef_addDomain.$pwk_ef_subdomains.$pwk_ef_linksOut.'_paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://'.$pwk_address.'/";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", 1]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><noscript><p><img src="http://'.$pwk_domain.'/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript><!-- /Piwik counter -->';
@@ -138,6 +143,7 @@ class plgSystemSunStat extends JPlugin
 		if ($ym_enabled)	$javascript= $javascript.$space.$ym;
 		if ($ga_enabled)	$javascript= $javascript.$space.$ga;
 		if ($li_enabled)	$javascript= $javascript.$space.$li;
+		if ($os_enabled)	$javascript= $javascript.$space.$os;
 		if ($pwk_enabled)	$javascript= $javascript.$space.$pwk;
 		if ($hl_enabled)	$javascript= $javascript.$space.$hl;
 		if ($rr_enabled)	$javascript= $javascript.$space.$rr;

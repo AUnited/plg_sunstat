@@ -12,4 +12,5 @@ Supporting a couple of Russian and international statistic Services
 - Piwik
 - HotLog
 - Rambler Top100
+- OpenStat (SpyLog)
  
