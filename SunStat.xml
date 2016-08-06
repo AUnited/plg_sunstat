@@ -27,7 +27,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
-		<field name="ym_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_YM_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="ym_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
@@ -35,7 +35,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
-		<field name="mr_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_MR_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="mr_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
@@ -43,7 +43,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
           </field>
-          <field name="li_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_LI_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+          <field name="li_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
           </field>
@@ -51,7 +51,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field>
-		<field name="os_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_OS_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="os_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>		
@@ -59,7 +59,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
-		<field name="ga_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_GA_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="ga_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
@@ -67,7 +67,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
-		<field name="pwk_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_PWK_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="pwk_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
@@ -75,7 +75,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
-		<field name="hl_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_HL_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="hl_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
@@ -83,7 +83,7 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
-		<field name="rr_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_HL_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="rr_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
