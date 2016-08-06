@@ -22,6 +22,7 @@
 # li_ = LiveInternet
 # hl_ = Hotlog
 # rr_ = Rambler
+# os_ = OpenStat (SpyLog)
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
@@ -80,8 +81,10 @@ class plgSystemSunStat extends JPlugin
 		//liveinternet
 		$li_enabled 			= $this->params->get( 'li_enabled', '' );
 		$li_noIndexWrapper 		= $this->params->get( 'li_noindexWrapper', '1' );
-		//liveinternet
+		//OpenStat
 		$os_enabled 			= $this->params->get( 'os_enabled', '' );
+		$os_identified			= $this->params->get( 'os_identified', '' );
+		$os_id 					= $this->params->get( 'os_id', '' );
 		$os_noIndexWrapper 		= $this->params->get( 'os_noindexWrapper', '1' );
 		//hotlog
 		$hl_enabled 			= $this->params->get( 'hl_enabled', '' );
@@ -116,7 +119,8 @@ class plgSystemSunStat extends JPlugin
 		if ($pwk_linksOut) 	$pwk_ef_linksOut	='_paq.push(["setDomains", ["*.'.$pwk_domain.'"]]); '; 						 else $pwk_ef_linksOut='';
 		if ($pwk_subdomains)$pwk_ef_subdomains	='_paq.push(["setCookieDomain", "*.'.$pwk_domain.'"]); '; 					 else $pwk_ef_subdomains='';
 		if ($pwk_addDomain)	$pwk_ef_addDomain	='_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);'; else $pwk_ef_addDomain='';
-
+		//OpenStat
+		if (!$os_identified) $os_id = 1;
         $mr		= '<!-- Rating Mail.ru counter --><script type="text/javascript">//<![CDATA[var _tmr = _tmr || [];_tmr.push({id: '.$mr_id.', type: "pageView", start: (new Date()).getTime()});(function (d, w) {   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }})(document, window);//]]></script><noscript><div style="position:absolute;left:-10000px;"><img src="//top-fwz1.mail.ru/counter?id='.$mr_id.';js=na" style="border:0;" height="1" width="1" alt="Rating Mail.ru" /></noscript><!-- /Rating Mail.ru counter -->';
 		if($mr_noIndexWrapper) $mr = '<!--noindex-->' . $mr . '<!--/noindex-->';
 		$ym		= '<!-- Yandex.Metrika counter -->' . $ym_ef_yaParams . '<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter' . $ym_id . ' = new Ya.Metrika({id:' . $ym_id . ', ' .$ym_ef_webvisor.$ym_ef_clickmap.$ym_ef_linksout.$ym_ef_atb.$ym_ef_trackhash.$ym_ef_noindex.$ym_ef_yaParams2.'}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/' . $ym_id .$ym_ef_noindex2. '" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->';
@@ -124,7 +128,7 @@ class plgSystemSunStat extends JPlugin
 		$ga		= "<!-- Universal Analytics counter --><script type='text/javascript'>  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)  })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-".$ga_id."', '".$ga_domain."'); ".$ga_ef_demographic.$ga_ef_extattrib." ga('send', 'pageview'); ".$ga_ef_uid." </script><!-- /Universal Analytics counter -->";	
 		if($ga_legacy) $ga = "<!-- Google Analytics counter --><script type='text/javascript'>  var _gaq = _gaq || [];".$ga_ef_extattrib.$ga_ef_uid." _gaq.push(['_setAccount', 'UA-".$ga_id."]);  _gaq.push(['_setDomainName', 'none']);  _gaq.push(['_setAllowLinker', true]);_gaq.push(['_addDevId', 'YogEE'],['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;"    .$gal_ef_demographic.   " var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script><!-- /Google Analytics counter -->";
 		if($ga_noIndexWrapper) $ga = '<!--noindex-->' . $ga . '<!--/noindex-->';
-		$os		= '<!--Openstat--><span id="openstat1"></span><script type="text/javascript">var openstat = { counter: 1, next: openstat };(function(d, t, p) {var j = d.createElement(t); j.async = true; j.type = "text/javascript";j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);})(document, "script", document.location.protocol);</script><!--/Openstat-->';
+		$os		= '<!--Openstat--><span id="openstat'.$os_id.'"></span><script type="text/javascript">var openstat = { counter: '.$os_id.', next: openstat };(function(d, t, p) {var j = d.createElement(t); j.async = true; j.type = "text/javascript";j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);})(document, "script", document.location.protocol);</script><!--/Openstat-->';
 		if($os_noIndexWrapper) $li = '<!--noindex-->' . $os . '<!--/noindex-->';
 		$li		= '<!-- LiveInternet counter --><script type="text/javascript"><!--new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();//--></script><!-- /LiveInternet counter -->';
 		if($li_noIndexWrapper) $li = '<!--noindex-->' . $li . '<!--/noindex-->';
