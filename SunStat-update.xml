@@ -5,101 +5,6 @@
       <description>SunStat Statistics plugin for Joomla</description>
       <element>plg_SunStat</element>
       <type>plugin</type>
-      <version>0.2</version>
- 
-      <infourl title="SunStat URL">http://help.aunited.ru/sunstat/</infourl>
-      <downloads>
-         <downloadurl type="full" format="zip">https://github.com/AUnited/plg_sunstat/archive/0.2.zip</downloadurl>
-      </downloads>
-      <tags>
-         <tag>sunstat</tag>
-      </tags>
- 
-      <maintainer>AUnited Co. Ltd.</maintainer>
-      <maintainerurl>http://aunited.ru</maintainerurl>
-      <targetplatform name="joomla" version="2.5" />
-   </update>   
-   <update>
-      <name>SunStat</name>
-      <description>SunStat Statistics plugin for Joomla</description>
-      <element>plg_SunStat</element>
-      <type>plugin</type>
-      <version>0.3</version>
- 
-      <infourl title="SunStat URL">http://help.aunited.ru/sunstat/</infourl>
-      <downloads>
-         <downloadurl type="full" format="zip">https://github.com/AUnited/plg_sunstat/archive/0.3.zip</downloadurl>
-      </downloads>
-      <tags>
-         <tag>sunstat</tag>
-      </tags>
- 
-      <maintainer>AUnited Co. Ltd.</maintainer>
-      <maintainerurl>http://aunited.ru</maintainerurl>
-      <targetplatform name="joomla" version="2.5" />
-   </update>
-   <update>
-      <name>SunStat</name>
-      <description>SunStat Statistics plugin for Joomla</description>
-      <element>plg_SunStat</element>
-      <type>plugin</type>
-      <version>0.4</version>
- 
-      <infourl title="SunStat URL">http://help.aunited.ru/sunstat/</infourl>
-      <downloads>
-         <downloadurl type="full" format="zip">https://github.com/AUnited/plg_sunstat/archive/0.4.zip</downloadurl>
-      </downloads>
-      <tags>
-         <tag>sunstat</tag>
-      </tags>
- 
-      <maintainer>AUnited Co. Ltd.</maintainer>
-      <maintainerurl>http://aunited.ru</maintainerurl>
-      <targetplatform name="joomla" version="2.5" />
-   </update>
-      <update>
-      <name>SunStat</name>
-      <description>SunStat Statistics plugin for Joomla</description>
-      <element>plg_SunStat</element>
-      <type>plugin</type>
-      <version>0.4.1</version>
- 
-      <infourl title="SunStat URL">http://help.aunited.ru/sunstat/</infourl>
-      <downloads>
-         <downloadurl type="full" format="zip">https://github.com/AUnited/plg_sunstat/archive/0.4.1.zip</downloadurl>
-      </downloads>
-      <tags>
-         <tag>sunstat</tag>
-      </tags>
- 
-      <maintainer>AUnited Co. Ltd.</maintainer>
-      <maintainerurl>http://aunited.ru</maintainerurl>
-      <targetplatform name="joomla" version="2.5" />
-   </update>
-      <update>
-      <name>SunStat</name>
-      <description>SunStat Statistics plugin for Joomla</description>
-      <element>plg_SunStat</element>
-      <type>plugin</type>
-      <version>0.5</version>
- 
-      <infourl title="SunStat URL">http://help.aunited.ru/sunstat/</infourl>
-      <downloads>
-         <downloadurl type="full" format="zip">https://github.com/AUnited/plg_sunstat/archive/0.5.zip</downloadurl>
-      </downloads>
-      <tags>
-         <tag>sunstat</tag>
-      </tags>
- 
-      <maintainer>AUnited Co. Ltd.</maintainer>
-      <maintainerurl>http://aunited.ru</maintainerurl>
-      <targetplatform name="joomla" version="2.5" />
-   </update>
-   <update>
-      <name>SunStat</name>
-      <description>SunStat Statistics plugin for Joomla</description>
-      <element>plg_SunStat</element>
-      <type>plugin</type>
       <version>0.5.1</version>
  
       <infourl title="SunStat URL">http://help.aunited.ru/sunstat/</infourl>
@@ -110,7 +15,7 @@
          <tag>sunstat</tag>
       </tags>
  
-      <maintainer>AUnited Co. Ltd.</maintainer>
+      <maintainer>AUnited Company Limited</maintainer>
       <maintainerurl>http://aunited.ru</maintainerurl>
       <targetplatform name="joomla" version="2.5" />
    </update>
@@ -129,7 +34,7 @@
          <tag>sunstat</tag>
       </tags>
  
-      <maintainer>AUnited Co. Ltd.</maintainer>
+      <maintainer>AUnited Company Limited</maintainer>
       <maintainerurl>http://aunited.ru</maintainerurl>
       <targetplatform name="joomla" version="2.5" />
    </update>
@@ -148,7 +53,7 @@
          <tag>sunstat</tag>
       </tags>
  
-      <maintainer>AUnited Co. Ltd.</maintainer>
+      <maintainer>AUnited Company Limited</maintainer>
       <maintainerurl>http://aunited.ru</maintainerurl>
       <targetplatform name="joomla" version="2.5" />
    </update>
@@ -167,7 +72,7 @@
          <tag>sunstat</tag>
       </tags>
  
-      <maintainer>AUnited Co. Ltd.</maintainer>
+      <maintainer>AUnited Company Limited</maintainer>
       <maintainerurl>http://aunited.ru</maintainerurl>
       <targetplatform name="joomla" version="2.5" />
    </update>
@@ -186,7 +91,7 @@
          <tag>sunstat</tag>
       </tags>
 
-      <maintainer>AUnited Co. Ltd.</maintainer>
+      <maintainer>AUnited Company Limited</maintainer>
       <maintainerurl>http://aunited.ru</maintainerurl>
       <targetplatform name="joomla" version="2.5" />
    </update>
