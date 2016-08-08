@@ -172,7 +172,7 @@
 		</fieldset>
 
         <fieldset name="PLG_SYSTEM_SUNSTAT_OS">
-            <field name="os_identified" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_OS_IDENTIFIED" description="PLG_SYS_SS_PWK_IDENTIFIED_DESC">
+            <field name="os_identified" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_OS_IDENTIFIED" description="PLG_SYS_SS_PWK_IDENTIFIED_DESC">
                 <option value="0">JNo</option>
                 <option value="1">JYes</option>
             </field>
