@@ -12,3 +12,12 @@ first public version
 +Added HotLog Counter
 ~Fixed upgrade issue
 ~Fixed translation issue
+-------------------------------------------------------
+0.8
++Added OpenStat (SpyLog) Counter
+-------------------------------------------------------
+0.8.1
+~ Fixed some translated strings
+~ Code standartisation fixes
+~ Codestyle fixes
+-------------------------------------------------------
