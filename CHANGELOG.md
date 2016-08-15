@@ -1,3 +1,5 @@
+Changelog
+=======
 0.5 
 first public version
 -------------------------------------------------------
@@ -9,12 +11,12 @@ first public version
 ~ Fixed typos in the varibles
 -------------------------------------------------------
 0.7 
-+Added HotLog Counter
-~Fixed upgrade issue
-~Fixed translation issue
++ Added HotLog Counter
+~ Fixed upgrade issue
+~ Fixed translation issue
 -------------------------------------------------------
 0.8
-+Added OpenStat (SpyLog) Counter
++ Added OpenStat (SpyLog) Counter
 -------------------------------------------------------
 0.8.1
 ~ Fixed some translated strings
