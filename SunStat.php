@@ -46,7 +46,19 @@ class plgSystemSunStat extends JPlugin
             return;
         }
 
-        function MailRu (){
+        $separator = $this->params->get( 'separator', 'enter' );
+        switch ($separator)
+        {
+            case 'none': $separator=''; break;
+            case 'space': $separator=' '; break;
+            case 'enter': $separator='
+            '; break;
+            case 'paragraph': $separator='
+            
+            '; break;
+        }
+
+        function MailRu ($separator){
 			// Initialise variables
         	$mr_enabled 			= $this->params->get( 'mr_enabled', '' );
 			$mr_noIndexWrapper 		= $this->params->get( 'mr_noindexWrapper', '1' );
@@ -55,10 +67,10 @@ class plgSystemSunStat extends JPlugin
 			$script		= '<!-- Rating Mail.ru counter --><script type="text/javascript">//<![CDATA[var _tmr = _tmr || [];_tmr.push({id: '.$mr_id.', type: "pageView", start: (new Date()).getTime()});(function (d, w) {   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }})(document, window);//]]></script><noscript><div style="position:absolute;left:-10000px;"><img src="//top-fwz1.mail.ru/counter?id='.$mr_id.';js=na" style="border:0;" height="1" width="1" alt="Rating Mail.ru" /></noscript><!-- /Rating Mail.ru counter -->';
 			if($mr_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-            if ($mr_enabled){return $script;} else {return '';}
+            if ($mr_enabled){return $script.$separator;} else {return '';}
 		}
 
-        function YandexMetrika (){
+        function YandexMetrika ($separator){
 			// Initialise variables
         	$ym_enabled 			= $this->params->get( 'ym_enabled', '' );
 			$ym_noIndexWrapper 		= $this->params->get( 'ym_noindexWrapper', '1' );
@@ -84,10 +96,10 @@ class plgSystemSunStat extends JPlugin
 			$script		= '<!-- Yandex.Metrika counter -->' . $ym_ef_yaParams . '<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter' . $ym_id . ' = new Ya.Metrika({id:' . $ym_id . ', ' .$ym_ef_webvisor.$ym_ef_clickmap.$ym_ef_linksout.$ym_ef_atb.$ym_ef_trackhash.$ym_ef_noindex.$ym_ef_yaParams2.'}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/' . $ym_id .$ym_ef_noindex2. '" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->';
 			if($ym_noIndexWrapper) $ym = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-            if ($ym_enabled){return $script;} else {return '';}
+            if ($ym_enabled){return $script.$separator;} else {return '';}
         }
 
-        function GoogleAnalytics () {
+        function GoogleAnalytics ($separator) {
 			// Initialise variables
 			$ga_enabled 			= $this->params->get( 'ga_enabled', '' );
 			$ga_legacy	 			= $this->params->get( 'ga_legacy', '' );
@@ -110,10 +122,10 @@ class plgSystemSunStat extends JPlugin
 			if($ga_legacy) $script = "<!-- Google Analytics counter --><script type='text/javascript'>  var _gaq = _gaq || [];".$ga_ef_extattrib.$ga_ef_uid." _gaq.push(['_setAccount', 'UA-".$ga_id."]);  _gaq.push(['_setDomainName', 'none']);  _gaq.push(['_setAllowLinker', true]);_gaq.push(['_addDevId', 'YogEE'],['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;"    .$gal_ef_demographic.   " var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script><!-- /Google Analytics counter -->";
 			if($ga_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-            if ($ga_enabled){return $script;} else {return '';}
+            if ($ga_enabled){return $script.$separator;} else {return '';}
 		}
 
-        function PiwikCounter (){
+        function PiwikCounter ($separator){
 			// Initialise variables
 			$pwk_enabled 			= $this->params->get( 'pwk_enabled', '' );
 			$pwk_noIndexWrapper 	= $this->params->get( 'pwk_noindexWrapper', '1' );
@@ -130,10 +142,10 @@ class plgSystemSunStat extends JPlugin
 			$script	= '<!-- Piwik counter --><script type="text/javascript">  var _paq = _paq || [];'.$pwk_ef_addDomain.$pwk_ef_subdomains.$pwk_ef_linksOut.'_paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://'.$pwk_address.'/";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", 1]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><noscript><p><img src="http://'.$pwk_domain.'/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript><!-- /Piwik counter -->';
 			if($pwk_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-            if ($pwk_enabled){return $script;} else {return '';}
+            if ($pwk_enabled){return $script.$separator;} else {return '';}
 		}
 
-        function LiveInternet () {
+        function LiveInternet ($separator) {
 			// Initialise variables
 			$li_enabled 			= $this->params->get( 'li_enabled', '' );
 			$li_noIndexWrapper 		= $this->params->get( 'li_noindexWrapper', '1' );
@@ -141,10 +153,10 @@ class plgSystemSunStat extends JPlugin
 			$script	= '<!-- LiveInternet counter --><script type="text/javascript"><!--new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();//--></script><!-- /LiveInternet counter -->';
 			if($li_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-			if ($li_enabled){return $script;} else {return '';}
+			if ($li_enabled){return $script.$separator;} else {return '';}
 		}
 
-        function OpenStat (){
+        function OpenStat ($separator){
 			// Initialise variables
 			$os_enabled 			= $this->params->get( 'os_enabled', '' );
 			$os_identified			= $this->params->get( 'os_identified', '' );
@@ -156,10 +168,10 @@ class plgSystemSunStat extends JPlugin
 			$script		= '<!--Openstat--><span id="openstat'.$os_id.'"></span><script type="text/javascript">var openstat = { counter: '.$os_id.', next: openstat };(function(d, t, p) {var j = d.createElement(t); j.async = true; j.type = "text/javascript";j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);})(document, "script", document.location.protocol);</script><!--/Openstat-->';
 			if($os_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-			return $script;
+            if ($os_enabled){return $script.$separator;} else {return '';}
 		}
 
-        function HotLog (){
+        function HotLog ($separator){
 			// Initialise variables
 			$hl_enabled 			= $this->params->get( 'hl_enabled', '' );
 			$hl_noIndexWrapper 		= $this->params->get( 'hl_noindexWrapper', '1' );
@@ -168,10 +180,10 @@ class plgSystemSunStat extends JPlugin
 			$script		= "<!-- HotLog counter --><span id='hotlog_counter'></span><span id='hotlog_dyn'></span><script type='text/javascript'> var hot_s = document.createElement('script'); hot_s.type = 'text/javascript'; hot_s.async = true; hot_s.src = 'http://js.hotlog.ru/dcounter/" . $hl_id ."; hot_d = document.getElementById('hotlog_dyn');hot_d.appendChild(hot_s);</script><noscript><a href='http://click.hotlog.ru/?" . $hl_id ."' target='_blank'><img src='http://hit.hotlog.ru/cgi-bin/hotlog/count?s=" . $hl_id ."&amp;im=307' border='0' alt='HotLog'></a></noscript><!-- /HotLog counter -->";
 			if($hl_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-			return $script;
+            if ($hl_enabled){return $script.$separator;} else {return '';}
 		}
 
-        function RamblerTop (){
+        function RamblerTop ($separator){
 			// Initialise variables
         	$rr_enabled 			= $this->params->get( 'rr_enabled', '' );
 			$rr_noIndexWrapper 		= $this->params->get( 'rr_noindexWrapper', '1' );
@@ -180,29 +192,15 @@ class plgSystemSunStat extends JPlugin
 			$script		= '<!-- Rambler counter --><script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?'. $rr_id .'"></script><noscript><a href="http://top100.rambler.ru/navi/'. $rr_id .'/"><img src="http://counter.rambler.ru/top100.cnt?'. $rr_id .'" alt="Ramblers Top100" border="0" /></a></noscript><!-- /Rambler counter -->';
 			if($rr_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-			return $script;
+            if ($rr_enabled){return $script.$separator;} else {return '';}
         }
 
 		//getting body code and storing as buffer
 		$buffer = JResponse::getBody();
 
+		//output and separate
 
-
-
-
-		
-		//is it enabled?
-		$javascript='';
-		$space='
-		';
-        if ($mr_enabled)	$javascript= $javascript.$space.$mr;
-		if ($ym_enabled)	$javascript= $javascript.$space.$ym;
-		if ($ga_enabled)	$javascript= $javascript.$space.$ga;
-		if ($li_enabled)	$javascript= $javascript.$space.$li;
-		if ($os_enabled)	$javascript= $javascript.$space.$os;
-		if ($pwk_enabled)	$javascript= $javascript.$space.$pwk;
-		if ($hl_enabled)	$javascript= $javascript.$space.$hl;
-		if ($rr_enabled)	$javascript= $javascript.$space.$rr;
+        $javascript=MailRu($separator).YandexMetrika($separator).GoogleAnalytics($separator).PiwikCounter($separator).LiveInternet($separator).OpenStat($separator).HotLog($separator).RamblerTop($separator);
 
 		$buffer = preg_replace ("/<body>/", "</body>\n\n.$javascript", $buffer);
 		

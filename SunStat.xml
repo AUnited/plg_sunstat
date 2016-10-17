@@ -24,6 +24,12 @@
   <config>
     <fields name="params" >
       <fieldset name="Basic">
+          <field name="separator" type="radio" class="btn-group btn-group-yesno" default="enter" label="PLG_SYS_SS_SEPARATOR" description="PLG_SYS_SS_PWK_ADDDOMAIN_DESC">
+              <option value="space">Space</option>
+              <option value="none">None</option>
+              <option value="enter">New string</option>
+              <option value="pargraph">Blank string</option>
+          </field>
 		<field name="ym_enabled" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_YM_ENABLED" description="PLG_SYS_SS_ENABLED_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
