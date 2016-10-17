@@ -45,7 +45,7 @@ class plgSystemSunStat extends JPlugin
         {
             return;
         }
-
+		$params = $this->params;
         $separator = $params->get( 'separator', 'enter' );
         switch ($separator)
         {
