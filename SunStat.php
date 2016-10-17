@@ -1,8 +1,8 @@
 <?php
-# @version		$version 0.7 Amvis United Company Limited  $
-# @copyright	Copyright (C) 2014 AUnited Co Ltd. All rights reserved.
-# @license		SunStat has been originally created by Vitaliy Zhukov under GNU/GPL and relicensed under Apache v2.0, see LICENSE
-# Updated		1st December 2014
+# @version		$version 1.0 Amvis United Company Limited  $
+# @copyright	Copyright (C) 2016 AUnited Co Ltd. All rights reserved.
+# @license		SunStat 1.0 by Vitaliy Zhukov licensed under Apache v2.0, see LICENSE
+# Updated		17st October 2014
 #
 # Site: http://aunited.ru
 # Email: info@aunited.ru
@@ -45,6 +45,22 @@ class plgSystemSunStat extends JPlugin
         {
             return;
         }
+        function MailRu ($mr_id){}
+
+        function YandexMetrika ($ym_id){}
+
+        function GoogleAnalytics ($ga_id) {}
+
+        function PiwikCounter (){}
+
+        function LiveInternet () {}
+
+        function OpenStat (){}
+
+        function HotLog (){}
+
+        function RamblerTop (){}
+        
 		// Initialise variables
 		//mailru
 		$mr_enabled 			= $this->params->get( 'mr_enabled', '' );
@@ -154,7 +170,7 @@ class plgSystemSunStat extends JPlugin
 		if ($hl_enabled)	$javascript= $javascript.$space.$hl;
 		if ($rr_enabled)	$javascript= $javascript.$space.$rr;
 
-		$buffer = preg_replace ("/<\/body>/", $javascript."\n\n</body>", $buffer);
+		$buffer = preg_replace ("/<actualization-date>18.08.2016<\/actualization-date>/", $javascript."\n\n</body>", $buffer);
 		
 		//output the buffer
 		JResponse::setBody($buffer);
