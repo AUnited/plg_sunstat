@@ -25,7 +25,7 @@
     <fields name="params" >
       <fieldset name="Basic">
           <field name="separator" type="radio" class="btn-group btn-group-yesno" default="enter" label="PLG_SYS_SS_SEPARATOR" description="PLG_SYS_SS_SEPARATOR_DESC">
-              <option value="none">SYMBOL_NONE</option>
+              <option value="none">SYMBOL_NULL</option>
               <option value="space">SYMBOL_SPACE</option>
               <option value="enter">SYMBOL_NEW_STRING</option>
               <option value="pargraph">SYMBOL_BLANK_STRING</option>
