@@ -46,7 +46,7 @@ class plgSystemSunStat extends JPlugin
             return;
         }
 
-        $separator = $this->params->get( 'separator', 'enter' );
+        $separator = $params->get( 'separator', 'enter' );
         switch ($separator)
         {
             case 'none': $separator=''; break;
@@ -60,9 +60,10 @@ class plgSystemSunStat extends JPlugin
 
         function MailRu ($separator){
 			// Initialise variables
-        	$mr_enabled 			= $this->params->get( 'mr_enabled', '' );
-			$mr_noIndexWrapper 		= $this->params->get( 'mr_noindexWrapper', '1' );
-			$mr_id 					= $this->params->get( 'mr_id', '' );
+			$params = $this->params;
+        	$mr_enabled 			= $params->get( 'mr_enabled', '' );
+			$mr_noIndexWrapper 		= $params->get( 'mr_noindexWrapper', '1' );
+			$mr_id 					= $params->get( 'mr_id', '' );
 
 			$script		= '<!-- Rating Mail.ru counter --><script type="text/javascript">//<![CDATA[var _tmr = _tmr || [];_tmr.push({id: '.$mr_id.', type: "pageView", start: (new Date()).getTime()});(function (d, w) {   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }})(document, window);//]]></script><noscript><div style="position:absolute;left:-10000px;"><img src="//top-fwz1.mail.ru/counter?id='.$mr_id.';js=na" style="border:0;" height="1" width="1" alt="Rating Mail.ru" /></noscript><!-- /Rating Mail.ru counter -->';
 			if($mr_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
@@ -72,16 +73,17 @@ class plgSystemSunStat extends JPlugin
 
         function YandexMetrika ($separator){
 			// Initialise variables
-        	$ym_enabled 			= $this->params->get( 'ym_enabled', '' );
-			$ym_noIndexWrapper 		= $this->params->get( 'ym_noindexWrapper', '1' );
-			$ym_id 					= $this->params->get( 'ym_id', '' );
-			$ym_yaParams			= $this->params->get( 'ym_yaParams', '' );
-			$ym_trackHash			= $this->params->get( 'ym_trackHash', '' );
-			$ym_webvisor 			= $this->params->get( 'ym_webvisor', '' );
-			$ym_clickMap 			= $this->params->get( 'ym_clickMap', '' );
-			$ym_linksOut 			= $this->params->get( 'ym_linksOut', '' );
-			$ym_accurateTrackBounce = $this->params->get( 'ym_accurateTrackBounce', '' );
-			$ym_noIndex 			= $this->params->get( 'ym_noIndex', '' );
+			$params = $this->params;
+        	$ym_enabled 			= $params->get( 'ym_enabled', '' );
+			$ym_noIndexWrapper 		= $params->get( 'ym_noindexWrapper', '1' );
+			$ym_id 					= $params->get( 'ym_id', '' );
+			$ym_yaParams			= $params->get( 'ym_yaParams', '' );
+			$ym_trackHash			= $params->get( 'ym_trackHash', '' );
+			$ym_webvisor 			= $params->get( 'ym_webvisor', '' );
+			$ym_clickMap 			= $params->get( 'ym_clickMap', '' );
+			$ym_linksOut 			= $params->get( 'ym_linksOut', '' );
+			$ym_accurateTrackBounce = $params->get( 'ym_accurateTrackBounce', '' );
+			$ym_noIndex 			= $params->get( 'ym_noIndex', '' );
 
 			//Extended functions
 			if ($ym_yaParams !=''){$ym_ef_yaParams='<script type="text/javascript">var yaParams = {'.$ym_yaParams.'};</script>'; $ym_ef_yaParams2='params:window.yaParams||{ }';} else
@@ -101,14 +103,15 @@ class plgSystemSunStat extends JPlugin
 
         function GoogleAnalytics ($separator) {
 			// Initialise variables
-			$ga_enabled 			= $this->params->get( 'ga_enabled', '' );
-			$ga_legacy	 			= $this->params->get( 'ga_legacy', '' );
-			$ga_noIndexWrapper 		= $this->params->get( 'ga_noindexWrapper', '1' );
-			$ga_id 					= $this->params->get( 'ga_id', '' );
-			$ga_domain 				= $this->params->get( 'ga_domain', '' );
-			$ga_uid 				= $this->params->get( 'ga_uid', '' );
-			$ga_demographic			= $this->params->get( 'ga_demographic', '' );
-			$ga_extattrib			= $this->params->get( 'ga_extattrib', '' );
+			$params = $this->params;
+			$ga_enabled 			= $params->get( 'ga_enabled', '' );
+			$ga_legacy	 			= $params->get( 'ga_legacy', '' );
+			$ga_noIndexWrapper 		= $params->get( 'ga_noindexWrapper', '1' );
+			$ga_id 					= $params->get( 'ga_id', '' );
+			$ga_domain 				= $params->get( 'ga_domain', '' );
+			$ga_uid 				= $params->get( 'ga_uid', '' );
+			$ga_demographic			= $params->get( 'ga_demographic', '' );
+			$ga_extattrib			= $params->get( 'ga_extattrib', '' );
 			//Extended functions
 			//Google Analytics
 			if ($ga_demographic)$ga_ef_demographic	="ga('require', 'displayfeatures');"; 										 else $ga_ef_demographic='';
@@ -127,13 +130,14 @@ class plgSystemSunStat extends JPlugin
 
         function PiwikCounter ($separator){
 			// Initialise variables
-			$pwk_enabled 			= $this->params->get( 'pwk_enabled', '' );
-			$pwk_noIndexWrapper 	= $this->params->get( 'pwk_noindexWrapper', '1' );
-			$pwk_addDomain			= $this->params->get( 'pwk_addDomain', '' );
-			$pwk_subdomains 		= $this->params->get( 'pwk_subdomains', '' );
-			$pwk_linksOut 			= $this->params->get( 'pwk_linksOut', '' );
-			$pwk_address 			= $this->params->get( 'pwk_address', '' );
-			$pwk_domain 			= $this->params->get( 'pwk_domain', '' );
+			$params = $this->params;
+			$pwk_enabled 			= $params->get( 'pwk_enabled', '' );
+			$pwk_noIndexWrapper 	= $params->get( 'pwk_noindexWrapper', '1' );
+			$pwk_addDomain			= $params->get( 'pwk_addDomain', '' );
+			$pwk_subdomains 		= $params->get( 'pwk_subdomains', '' );
+			$pwk_linksOut 			= $params->get( 'pwk_linksOut', '' );
+			$pwk_address 			= $params->get( 'pwk_address', '' );
+			$pwk_domain 			= $params->get( 'pwk_domain', '' );
 			//Extended functions
 			if ($pwk_linksOut) 	$pwk_ef_linksOut	='_paq.push(["setDomains", ["*.'.$pwk_domain.'"]]); '; 						 else $pwk_ef_linksOut='';
 			if ($pwk_subdomains)$pwk_ef_subdomains	='_paq.push(["setCookieDomain", "*.'.$pwk_domain.'"]); '; 					 else $pwk_ef_subdomains='';
@@ -147,8 +151,9 @@ class plgSystemSunStat extends JPlugin
 
         function LiveInternet ($separator) {
 			// Initialise variables
-			$li_enabled 			= $this->params->get( 'li_enabled', '' );
-			$li_noIndexWrapper 		= $this->params->get( 'li_noindexWrapper', '1' );
+			$params = $this->params;
+			$li_enabled 			= $params->get( 'li_enabled', '' );
+			$li_noIndexWrapper 		= $params->get( 'li_noindexWrapper', '1' );
 
 			$script	= '<!-- LiveInternet counter --><script type="text/javascript"><!--new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();//--></script><!-- /LiveInternet counter -->';
 			if($li_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
@@ -158,10 +163,11 @@ class plgSystemSunStat extends JPlugin
 
         function OpenStat ($separator){
 			// Initialise variables
-			$os_enabled 			= $this->params->get( 'os_enabled', '' );
-			$os_identified			= $this->params->get( 'os_identified', '' );
-			$os_id 					= $this->params->get( 'os_id', '' );
-			$os_noIndexWrapper 		= $this->params->get( 'os_noindexWrapper', '1' );
+			$params = $this->params;
+			$os_enabled 			= $params->get( 'os_enabled', '' );
+			$os_identified			= $params->get( 'os_identified', '' );
+			$os_id 					= $params->get( 'os_id', '' );
+			$os_noIndexWrapper 		= $params->get( 'os_noindexWrapper', '1' );
 			//Extended functions
 			if (!$os_identified) $os_id = 1;
 
@@ -173,9 +179,10 @@ class plgSystemSunStat extends JPlugin
 
         function HotLog ($separator){
 			// Initialise variables
-			$hl_enabled 			= $this->params->get( 'hl_enabled', '' );
-			$hl_noIndexWrapper 		= $this->params->get( 'hl_noindexWrapper', '1' );
-			$hl_id 					= $this->params->get( 'hl_id', '' );
+			$params = $this->params;
+			$hl_enabled 			= $params->get( 'hl_enabled', '' );
+			$hl_noIndexWrapper 		= $params->get( 'hl_noindexWrapper', '1' );
+			$hl_id 					= $params->get( 'hl_id', '' );
 
 			$script		= "<!-- HotLog counter --><span id='hotlog_counter'></span><span id='hotlog_dyn'></span><script type='text/javascript'> var hot_s = document.createElement('script'); hot_s.type = 'text/javascript'; hot_s.async = true; hot_s.src = 'http://js.hotlog.ru/dcounter/" . $hl_id ."; hot_d = document.getElementById('hotlog_dyn');hot_d.appendChild(hot_s);</script><noscript><a href='http://click.hotlog.ru/?" . $hl_id ."' target='_blank'><img src='http://hit.hotlog.ru/cgi-bin/hotlog/count?s=" . $hl_id ."&amp;im=307' border='0' alt='HotLog'></a></noscript><!-- /HotLog counter -->";
 			if($hl_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
@@ -185,9 +192,10 @@ class plgSystemSunStat extends JPlugin
 
         function RamblerTop ($separator){
 			// Initialise variables
-        	$rr_enabled 			= $this->params->get( 'rr_enabled', '' );
-			$rr_noIndexWrapper 		= $this->params->get( 'rr_noindexWrapper', '1' );
-			$rr_id 					= $this->params->get( 'rr_id', '' );
+			$params = $this->params;
+        	$rr_enabled 			= $params->get( 'rr_enabled', '' );
+			$rr_noIndexWrapper 		= $params->get( 'rr_noindexWrapper', '1' );
+			$rr_id 					= $params->get( 'rr_id', '' );
 
 			$script		= '<!-- Rambler counter --><script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?'. $rr_id .'"></script><noscript><a href="http://top100.rambler.ru/navi/'. $rr_id .'/"><img src="http://counter.rambler.ru/top100.cnt?'. $rr_id .'" alt="Ramblers Top100" border="0" /></a></noscript><!-- /Rambler counter -->';
 			if($rr_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
