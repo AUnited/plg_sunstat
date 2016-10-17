@@ -55,7 +55,7 @@ class plgSystemSunStat extends JPlugin
 			$script		= '<!-- Rating Mail.ru counter --><script type="text/javascript">//<![CDATA[var _tmr = _tmr || [];_tmr.push({id: '.$mr_id.', type: "pageView", start: (new Date()).getTime()});(function (d, w) {   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }})(document, window);//]]></script><noscript><div style="position:absolute;left:-10000px;"><img src="//top-fwz1.mail.ru/counter?id='.$mr_id.';js=na" style="border:0;" height="1" width="1" alt="Rating Mail.ru" /></noscript><!-- /Rating Mail.ru counter -->';
 			if($mr_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-			return $script;
+            if ($mr_enabled){return $script;} else {return '';}
 		}
 
         function YandexMetrika (){
@@ -84,7 +84,7 @@ class plgSystemSunStat extends JPlugin
 			$script		= '<!-- Yandex.Metrika counter -->' . $ym_ef_yaParams . '<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter' . $ym_id . ' = new Ya.Metrika({id:' . $ym_id . ', ' .$ym_ef_webvisor.$ym_ef_clickmap.$ym_ef_linksout.$ym_ef_atb.$ym_ef_trackhash.$ym_ef_noindex.$ym_ef_yaParams2.'}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/' . $ym_id .$ym_ef_noindex2. '" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->';
 			if($ym_noIndexWrapper) $ym = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-			return $script;
+            if ($ym_enabled){return $script;} else {return '';}
         }
 
         function GoogleAnalytics () {
@@ -110,7 +110,7 @@ class plgSystemSunStat extends JPlugin
 			if($ga_legacy) $script = "<!-- Google Analytics counter --><script type='text/javascript'>  var _gaq = _gaq || [];".$ga_ef_extattrib.$ga_ef_uid." _gaq.push(['_setAccount', 'UA-".$ga_id."]);  _gaq.push(['_setDomainName', 'none']);  _gaq.push(['_setAllowLinker', true]);_gaq.push(['_addDevId', 'YogEE'],['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;"    .$gal_ef_demographic.   " var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script><!-- /Google Analytics counter -->";
 			if($ga_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-			return $script;
+            if ($ga_enabled){return $script;} else {return '';}
 		}
 
         function PiwikCounter (){
@@ -130,7 +130,7 @@ class plgSystemSunStat extends JPlugin
 			$script	= '<!-- Piwik counter --><script type="text/javascript">  var _paq = _paq || [];'.$pwk_ef_addDomain.$pwk_ef_subdomains.$pwk_ef_linksOut.'_paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://'.$pwk_address.'/";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", 1]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><noscript><p><img src="http://'.$pwk_domain.'/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript><!-- /Piwik counter -->';
 			if($pwk_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-			return $script;
+            if ($pwk_enabled){return $script;} else {return '';}
 		}
 
         function LiveInternet () {
@@ -141,7 +141,7 @@ class plgSystemSunStat extends JPlugin
 			$script	= '<!-- LiveInternet counter --><script type="text/javascript"><!--new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();//--></script><!-- /LiveInternet counter -->';
 			if($li_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-			return $script;
+			if ($li_enabled){return $script;} else {return '';}
 		}
 
         function OpenStat (){
@@ -183,8 +183,6 @@ class plgSystemSunStat extends JPlugin
 			return $script;
         }
 
-
-		
 		//getting body code and storing as buffer
 		$buffer = JResponse::getBody();
 
@@ -206,7 +204,7 @@ class plgSystemSunStat extends JPlugin
 		if ($hl_enabled)	$javascript= $javascript.$space.$hl;
 		if ($rr_enabled)	$javascript= $javascript.$space.$rr;
 
-		$buffer = preg_replace ("/<actualization-date>18.08.2016<\/actualization-date>/", $javascript."\n\n</body>", $buffer);
+		$buffer = preg_replace ("/<body>/", "</body>\n\n.$javascript", $buffer);
 		
 		//output the buffer
 		JResponse::setBody($buffer);
