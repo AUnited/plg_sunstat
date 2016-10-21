@@ -74,16 +74,16 @@ class plgSystemSunStat extends JPlugin
         function YandexMetrika ($separator){
 			// Initialise variables
 			$params = $this->params;
-        	$ym_enabled 			= $params->get( 'ym_enabled', '' );
+        	$ym_enabled 			= $params->get( 'ym_enabled', '1' );
 			$ym_noIndexWrapper 		= $params->get( 'ym_noindexWrapper', '1' );
-			$ym_id 					= $params->get( 'ym_id', '' );
+			$ym_id 					= $params->get( 'ym_id', '000000' );
 			$ym_yaParams			= $params->get( 'ym_yaParams', '' );
 			$ym_trackHash			= $params->get( 'ym_trackHash', '' );
-			$ym_webvisor 			= $params->get( 'ym_webvisor', '' );
-			$ym_clickMap 			= $params->get( 'ym_clickMap', '' );
-			$ym_linksOut 			= $params->get( 'ym_linksOut', '' );
+			$ym_webvisor 			= $params->get( 'ym_webvisor', '1' );
+			$ym_clickMap 			= $params->get( 'ym_clickMap', '1' );
+			$ym_linksOut 			= $params->get( 'ym_linksOut', '1' );
 			$ym_accurateTrackBounce = $params->get( 'ym_accurateTrackBounce', '' );
-			$ym_noIndex 			= $params->get( 'ym_noIndex', '' );
+			$ym_noIndex 			= $params->get( 'ym_noIndex', '1' );
 
 			//Extended functions
 			if ($ym_yaParams !=''){$ym_ef_yaParams='<script type="text/javascript">var yaParams = {'.$ym_yaParams.'};</script>'; $ym_ef_yaParams2='params:window.yaParams||{ }';} else
@@ -104,10 +104,10 @@ class plgSystemSunStat extends JPlugin
         function GoogleAnalytics ($separator) {
 			// Initialise variables
 			$params = $this->params;
-			$ga_enabled 			= $params->get( 'ga_enabled', '' );
-			$ga_legacy	 			= $params->get( 'ga_legacy', '' );
+			$ga_enabled 			= $params->get( 'ga_enabled', '1' );
+			$ga_legacy	 			= $params->get( 'ga_legacy', '0' );
 			$ga_noIndexWrapper 		= $params->get( 'ga_noindexWrapper', '1' );
-			$ga_id 					= $params->get( 'ga_id', '' );
+			$ga_id 					= $params->get( 'ga_id', '000000' );
 			$ga_domain 				= $params->get( 'ga_domain', '' );
 			$ga_uid 				= $params->get( 'ga_uid', '' );
 			$ga_demographic			= $params->get( 'ga_demographic', '' );
@@ -131,7 +131,7 @@ class plgSystemSunStat extends JPlugin
         function PiwikCounter ($separator){
 			// Initialise variables
 			$params = $this->params;
-			$pwk_enabled 			= $params->get( 'pwk_enabled', '' );
+			$pwk_enabled 			= $params->get( 'pwk_enabled', '1' );
 			$pwk_noIndexWrapper 	= $params->get( 'pwk_noindexWrapper', '1' );
 			$pwk_addDomain			= $params->get( 'pwk_addDomain', '' );
 			$pwk_subdomains 		= $params->get( 'pwk_subdomains', '' );
@@ -152,7 +152,7 @@ class plgSystemSunStat extends JPlugin
         function LiveInternet ($separator) {
 			// Initialise variables
 			$params = $this->params;
-			$li_enabled 			= $params->get( 'li_enabled', '' );
+			$li_enabled 			= $params->get( 'li_enabled', '1' );
 			$li_noIndexWrapper 		= $params->get( 'li_noindexWrapper', '1' );
 
 			$script	= '<!-- LiveInternet counter --><script type="text/javascript"><!--new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();//--></script><!-- /LiveInternet counter -->';
@@ -164,9 +164,9 @@ class plgSystemSunStat extends JPlugin
         function OpenStat ($separator){
 			// Initialise variables
 			$params = $this->params;
-			$os_enabled 			= $params->get( 'os_enabled', '' );
-			$os_identified			= $params->get( 'os_identified', '' );
-			$os_id 					= $params->get( 'os_id', '' );
+			$os_enabled 			= $params->get( 'os_enabled', '1' );
+			$os_identified			= $params->get( 'os_identified', '0' );
+			$os_id 					= $params->get( 'os_id', '000000' );
 			$os_noIndexWrapper 		= $params->get( 'os_noindexWrapper', '1' );
 			//Extended functions
 			if (!$os_identified) $os_id = 1;
@@ -180,9 +180,9 @@ class plgSystemSunStat extends JPlugin
         function HotLog ($separator){
 			// Initialise variables
 			$params = $this->params;
-			$hl_enabled 			= $params->get( 'hl_enabled', '' );
+			$hl_enabled 			= $params->get( 'hl_enabled', '1' );
 			$hl_noIndexWrapper 		= $params->get( 'hl_noindexWrapper', '1' );
-			$hl_id 					= $params->get( 'hl_id', '' );
+			$hl_id 					= $params->get( 'hl_id', '000000' );
 
 			$script		= "<!-- HotLog counter --><span id='hotlog_counter'></span><span id='hotlog_dyn'></span><script type='text/javascript'> var hot_s = document.createElement('script'); hot_s.type = 'text/javascript'; hot_s.async = true; hot_s.src = 'http://js.hotlog.ru/dcounter/" . $hl_id ."; hot_d = document.getElementById('hotlog_dyn');hot_d.appendChild(hot_s);</script><noscript><a href='http://click.hotlog.ru/?" . $hl_id ."' target='_blank'><img src='http://hit.hotlog.ru/cgi-bin/hotlog/count?s=" . $hl_id ."&amp;im=307' border='0' alt='HotLog'></a></noscript><!-- /HotLog counter -->";
 			if($hl_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
@@ -193,7 +193,7 @@ class plgSystemSunStat extends JPlugin
         function RamblerTop ($separator){
 			// Initialise variables
 			$params = $this->params;
-        	$rr_enabled 			= $params->get( 'rr_enabled', '' );
+        	$rr_enabled 			= $params->get( 'rr_enabled', '1' );
 			$rr_noIndexWrapper 		= $params->get( 'rr_noindexWrapper', '1' );
 			$rr_id 					= $params->get( 'rr_id', '' );
 
