@@ -12,7 +12,8 @@
   <description><![CDATA[PLG_SUNSTAT_XML_DESCRIPTION]]></description>
   <files>
 	<folder>language</folder>
-    <filename plugin="SunStat">SunStat.php</filename>
+      <filename>functions.php</filename>
+      <filename plugin="SunStat">SunStat.php</filename>
     <filename>index.html</filename>
   </files>
   <languages>
