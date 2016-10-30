@@ -1,7 +1,7 @@
 <?php
 function MailRu ($separator){
 	// Initialise variables
-	$params = new JParameter( $this->_plugin->params );
+	$params = $this->params;
 	$mr_enabled 			= $params->get( 'mr_enabled', '' );
 	$mr_noIndexWrapper 		= $params->get( 'mr_noindexWrapper', '1' );
 	$mr_id 					= $params->get( 'mr_id', '' );
@@ -14,7 +14,7 @@ function MailRu ($separator){
 
 function YandexMetrika ($separator){
 	// Initialise variables
-	$params = $this->config;
+	$params = $this->params;
 	$ym_enabled 			= $params->get( 'ym_enabled', '1' );
 	$ym_noIndexWrapper 		= $params->get( 'ym_noindexWrapper', '1' );
 	$ym_id 					= $params->get( 'ym_id', '000000' );
@@ -44,7 +44,7 @@ function YandexMetrika ($separator){
 
 function GoogleAnalytics ($separator) {
 	// Initialise variables
-	$params = $this->config;
+	$params = $this->params;
 	$ga_enabled 			= $params->get( 'ga_enabled', '1' );
 	$ga_legacy	 			= $params->get( 'ga_legacy', '0' );
 	$ga_noIndexWrapper 		= $params->get( 'ga_noindexWrapper', '1' );
@@ -71,7 +71,7 @@ function GoogleAnalytics ($separator) {
 
 function PiwikCounter ($separator){
 	// Initialise variables
-	$params = $this->config;
+	$params = $this->params;
 	$pwk_enabled 			= $params->get( 'pwk_enabled', '1' );
 	$pwk_noIndexWrapper 	= $params->get( 'pwk_noindexWrapper', '1' );
 	$pwk_addDomain			= $params->get( 'pwk_addDomain', '' );
@@ -92,7 +92,7 @@ function PiwikCounter ($separator){
 
 function LiveInternet ($separator) {
 	// Initialise variables
-	$params = $this->config;
+	$params = $this->params;
 	$li_enabled 			= $params->get( 'li_enabled', '1' );
 	$li_noIndexWrapper 		= $params->get( 'li_noindexWrapper', '1' );
 
@@ -120,7 +120,7 @@ function OpenStat ($separator){
 
 function HotLog ($separator){
 	// Initialise variables
-	$params = $this->config;
+	$params = $this->params;
 	$hl_enabled 			= $params->get( 'hl_enabled', '1' );
 	$hl_noIndexWrapper 		= $params->get( 'hl_noindexWrapper', '1' );
 	$hl_id 					= $params->get( 'hl_id', '000000' );
@@ -133,7 +133,7 @@ function HotLog ($separator){
 
 function RamblerTop ($separator){
 	// Initialise variables
-	$params = $this->config;
+	$params = $this->params;
 	$rr_enabled 			= $params->get( 'rr_enabled', '1' );
 	$rr_noIndexWrapper 		= $params->get( 'rr_noindexWrapper', '1' );
 	$rr_id 					= $params->get( 'rr_id', '' );
