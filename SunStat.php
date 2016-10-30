@@ -43,9 +43,9 @@ class plgSystemSunStat extends JPlugin
         $app = JFactory::getApplication();
         if($app->isAdmin())
         {
-            return;
+            return true;
         }
-		$params = $this->params;
+		$params = $this->config;
         $separator = $params->get( 'separator', 'enter' );
         switch ($separator)
         {
@@ -73,7 +73,7 @@ class plgSystemSunStat extends JPlugin
 
         function YandexMetrika ($separator){
 			// Initialise variables
-			$params = $this->params;
+			$params = $this->config;
         	$ym_enabled 			= $params->get( 'ym_enabled', '1' );
 			$ym_noIndexWrapper 		= $params->get( 'ym_noindexWrapper', '1' );
 			$ym_id 					= $params->get( 'ym_id', '000000' );
@@ -103,7 +103,7 @@ class plgSystemSunStat extends JPlugin
 
         function GoogleAnalytics ($separator) {
 			// Initialise variables
-			$params = $this->params;
+			$params = $this->config;
 			$ga_enabled 			= $params->get( 'ga_enabled', '1' );
 			$ga_legacy	 			= $params->get( 'ga_legacy', '0' );
 			$ga_noIndexWrapper 		= $params->get( 'ga_noindexWrapper', '1' );
@@ -130,7 +130,7 @@ class plgSystemSunStat extends JPlugin
 
         function PiwikCounter ($separator){
 			// Initialise variables
-			$params = $this->params;
+			$params = $this->config;
 			$pwk_enabled 			= $params->get( 'pwk_enabled', '1' );
 			$pwk_noIndexWrapper 	= $params->get( 'pwk_noindexWrapper', '1' );
 			$pwk_addDomain			= $params->get( 'pwk_addDomain', '' );
@@ -151,7 +151,7 @@ class plgSystemSunStat extends JPlugin
 
         function LiveInternet ($separator) {
 			// Initialise variables
-			$params = $this->params;
+			$params = $this->config;
 			$li_enabled 			= $params->get( 'li_enabled', '1' );
 			$li_noIndexWrapper 		= $params->get( 'li_noindexWrapper', '1' );
 
@@ -179,7 +179,7 @@ class plgSystemSunStat extends JPlugin
 
         function HotLog ($separator){
 			// Initialise variables
-			$params = $this->params;
+			$params = $this->config;
 			$hl_enabled 			= $params->get( 'hl_enabled', '1' );
 			$hl_noIndexWrapper 		= $params->get( 'hl_noindexWrapper', '1' );
 			$hl_id 					= $params->get( 'hl_id', '000000' );
@@ -192,7 +192,7 @@ class plgSystemSunStat extends JPlugin
 
         function RamblerTop ($separator){
 			// Initialise variables
-			$params = $this->params;
+			$params = $this->config;
         	$rr_enabled 			= $params->get( 'rr_enabled', '1' );
 			$rr_noIndexWrapper 		= $params->get( 'rr_noindexWrapper', '1' );
 			$rr_id 					= $params->get( 'rr_id', '' );
