@@ -25,18 +25,21 @@ function YandexMetrika ($separator){
 	$ym_linksOut 			= $params->get( 'ym_linksOut', '1' );
 	$ym_accurateTrackBounce = $params->get( 'ym_accurateTrackBounce', '' );
 	$ym_noIndex 			= $params->get( 'ym_noIndex', '1' );
+    $ym_ecommerce 			= $params->get( 'ym_ecommerce', '1' );
+    $ym_ecmdl 			    = $params->get( 'ym_ecmdl', 'dataLayer' );
 
 	//Extended functions
-	if ($ym_yaParams !=''){$ym_ef_yaParams='<script type="text/javascript">var yaParams = {'.$ym_yaParams.'};</script>'; $ym_ef_yaParams2='params:window.yaParams||{ }';} else
-	{$ym_ef_yaParams=''; $ym_ef_yaParams2='';};
-	if ($ym_webvisor)		$ym_ef_webvisor	="webvisor:true, "; 										 				else $ym_ef_webvisor='';
-	if ($ym_clickMap)		$ym_ef_clickmap	="clickmap:true, "; 										 				else $ym_ef_clickmap='';
-	if ($ym_linksOut)		$ym_ef_linksout	="trackLinks:true, "; 										 			else $ym_ef_linksout='';
-	if ($ym_accurateTrackBounce) $ym_ef_atb	="accurateTrackBounce:true, "; 											else $ym_ef_atb='';
-	if ($ym_trackHash)	$ym_ef_trackhash="accurateTrackBounce:true, "; 											else $ym_ef_trackhash='';
-	if ($ym_noIndex)		{$ym_ef_noindex	='ut:"noindex", '; $ym_ef_noindex2='?ut=noindex';} 									else {$ym_ef_noindex=''; $ym_ef_noindex2='';};
+	if ($ym_yaParams !='')          {$ym_ef_yaParams='<script type="text/javascript">var yaParams = {'.$ym_yaParams.'};</script>'; $ym_ef_yaParams2='params:window.yaParams||{ }';}
+	                                                                                                    else{$ym_ef_yaParams=''; $ym_ef_yaParams2='';};
+	if ($ym_webvisor)		        $ym_ef_webvisor	="webvisor:true, "; 	        			        else $ym_ef_webvisor='';
+	if ($ym_clickMap)		        $ym_ef_clickmap	="clickmap:true, "; 						        else $ym_ef_clickmap='';
+	if ($ym_linksOut)		        $ym_ef_linksout	="trackLinks:true, "; 			 			        else $ym_ef_linksout='';
+	if ($ym_accurateTrackBounce)    $ym_ef_atb	="accurateTrackBounce:true, "; 					        else $ym_ef_atb='';
+	if ($ym_trackHash)	            $ym_ef_trackhash="accurateTrackBounce:true, "; 				        else $ym_ef_trackhash='';
+    if ($ym_ecommerce)		        $ym_ef_ecommerce	="ecommerce:\"'.$ym_ecmdl.'\","; 	 			else $ym_ef_ecommerce='';
+	if ($ym_noIndex)                {$ym_ef_noindex	='ut:"noindex", '; $ym_ef_noindex2='?ut=noindex';} 	else {$ym_ef_noindex=''; $ym_ef_noindex2='';};
 
-	$script		= '<!-- Yandex.Metrika counter -->' . $ym_ef_yaParams . '<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter' . $ym_id . ' = new Ya.Metrika({id:' . $ym_id . ', ' .$ym_ef_webvisor.$ym_ef_clickmap.$ym_ef_linksout.$ym_ef_atb.$ym_ef_trackhash.$ym_ef_noindex.$ym_ef_yaParams2.'}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/' . $ym_id .$ym_ef_noindex2. '" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->';
+	$script		= '<!-- Yandex.Metrika counter -->' . $ym_ef_yaParams . '<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter' . $ym_id . ' = new Ya.Metrika({id:' . $ym_id . ', ' .$ym_ef_webvisor.$ym_ef_clickmap.$ym_ef_linksout.$ym_ef_atb.$ym_ef_trackhash.$ym_ef_noindex.$ym_ef_yaParams2.$ym_ef_ecommerce.'}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/' . $ym_id .$ym_ef_noindex2. '" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->';
 	if($ym_noIndexWrapper) $ym = '<!--noindex-->' . $script . '<!--/noindex-->';
 
 	if ($ym_enabled){return $script.$separator;} else {return '';}
