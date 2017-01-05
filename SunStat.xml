@@ -102,8 +102,8 @@
             <option value="0">JNo</option>
             <option value="1">JYes</option>
       </field>
-	  <field name="ga_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_GA_ID" description="PLG_SYS_SS_GA_ID_DESC"></field>
-	  <field name="ga_domain" type="text" default="example.com" label="PLG_SYS_SS_GA_DOMAIN" description="PLG_SYS_SS_GA_DOMAIN_DESC"></field>
+	  <field name="ga_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_GA_ID" description="PLG_SYS_SS_GA_ID_DESC" />
+	  <field name="ga_domain" type="text" default="example.com" label="PLG_SYS_SS_GA_DOMAIN" description="PLG_SYS_SS_GA_DOMAIN_DESC" />
 	  <field name="ga_demographic" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_GA_DEMOGRAPHIC" description="PLG_SYS_SS_GA_DEMOGRAPHIC_DESC">
             <option value="0">JNo</option>
             <option value="1">JYes</option>
@@ -120,12 +120,12 @@
 		</fieldset>
 		
 	<fieldset name="PLG_SYSTEM_SUNSTAT_YM">
-	  <field name="ym_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_YM_ID" description="PLG_SYS_SS_YM_ID_DESC"></field>
+	  <field name="ym_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_YM_ID" description="PLG_SYS_SS_YM_ID_DESC" />
 	  <field name="ym_webvisor" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_YM_WEBVISOR" description="PLG_SYS_SS_YM_WEBVISOR_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
-		<field name="ym_yaParams" type="text" default="" label="PLG_SYS_SS_YM_PARAMS" description="PLG_SYS_SS_YM_PARAMS_DESC"></field>
+		<field name="ym_yaParams" type="text" default="" label="PLG_SYS_SS_YM_PARAMS" description="PLG_SYS_SS_YM_PARAMS_DESC" />
 		<field name="ym_clickMap" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_YM_CLICKMAP" description="PLG_SYS_SS_YM_CLICKMAP_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
@@ -150,11 +150,11 @@
             <option value="0">JNo</option>
             <option value="1">JYes</option>
         </field>
-        <field name="ym_ecmdl" type="text" default="dataLayer" label="PLG_SYS_SS_YM_DATALAYER" description="PLG_SYS_SS_YM_DATALAYER_DESC"></field>
+        <field name="ym_ecmdl" type="text" default="dataLayer" label="PLG_SYS_SS_YM_DATALAYER" description="PLG_SYS_SS_YM_DATALAYER_DESC" />
 		</fieldset>
 		
 	<fieldset name="PLG_SYSTEM_SUNSTAT_MR">
-		<field name="mr_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_MR_ID" description="PLG_SYS_SS_MR_ID_DESC"></field>
+		<field name="mr_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_MR_ID" description="PLG_SYS_SS_MR_ID_DESC" />
 	</fieldset>
 		
 	<fieldset name="PLG_SYSTEM_SUNSTAT_PWK">
@@ -177,11 +177,11 @@
 		</fieldset>
 		
 	<fieldset name="PLG_SYSTEM_SUNSTAT_HL">
-		<field name="hl_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_HL_ID" description="PLG_SYS_SS_HL_ID_DESC"></field>
+		<field name="hl_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_HL_ID" description="PLG_SYS_SS_HL_ID_DESC" />
 		</fieldset>
 		
 	<fieldset name="PLG_SYSTEM_SUNSTAT_RR">
-		<field name="rr_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_RR_ID" description="PLG_SYS_SS_RR_ID_DESC"></field>
+		<field name="rr_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_RR_ID" description="PLG_SYS_SS_RR_ID_DESC" />
 		</fieldset>
 
         <fieldset name="PLG_SYSTEM_SUNSTAT_OS">
@@ -189,7 +189,7 @@
                 <option value="0">JNo</option>
                 <option value="1">JYes</option>
             </field>
-            <field name="os_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_OS_ID" description="PLG_SYS_SS_OS_ID_DESC"></field>
+            <field name="os_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_OS_ID" description="PLG_SYS_SS_OS_ID_DESC" />
         </fieldset>
 	
     </fields>
