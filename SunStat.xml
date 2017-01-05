@@ -3,11 +3,11 @@
 <extension version="2.5" type="plugin" group="system" method="upgrade">
   <name>PLG_SYSTEM_SUNSTAT</name>
   <author>Vitaliy Zhukov</author>
-  <creationDate>October 2016</creationDate>
+  <creationDate>January 2017</creationDate>
   <authorEmail>info@aunited.ru</authorEmail>
   <authorUrl>http://aunited.ru</authorUrl>
   <version>1.0</version>
-  <copyright>Copyright (c) 2016 AUnuted Co. Ltd. All rights reserved.</copyright>
+  <copyright>Copyright (c) 2017 AUnuted Co. Ltd. All rights reserved.</copyright>
   <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
   <description><![CDATA[PLG_SUNSTAT_XML_DESCRIPTION]]></description>
   <files>
