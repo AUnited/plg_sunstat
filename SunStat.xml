@@ -146,7 +146,7 @@
             <option value="0">JNo</option>
             <option value="1">JYes</option>
         </field>
-        <field name="ym_ecommerce" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_YM_ECOMMERCE" description="PLG_SYS_SS_YM_ECOMMERCE_DESC">
+        <field name="ym_ecommerce" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_YM_ECOMMERCE" description="PLG_SYS_SS_YM_ECOMMERCE_DESC">
             <option value="0">JNo</option>
             <option value="1">JYes</option>
         </field>
