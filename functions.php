@@ -1,10 +1,12 @@
 <?php
 function MailRu ($separator){
 	// Initialise variables
-	$params = $this->params;
-	$mr_enabled 			= $params->get( 'mr_enabled', '' );
-	$mr_noIndexWrapper 		= $params->get( 'mr_noindexWrapper', '1' );
-	$mr_id 					= $params->get( 'mr_id', '' );
+    $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
+    $pluginParams = new JRegistry();
+    $pluginParams->loadString($plugin->params);
+	$mr_enabled 			= $pluginParams->get( 'mr_enabled', '' );
+	$mr_noIndexWrapper 		= $pluginParams->get( 'mr_noindexWrapper', '1' );
+	$mr_id 					= $pluginParams->get( 'mr_id', '' );
 
 	$script		= '<!-- Rating Mail.ru counter --><script type="text/javascript">//<![CDATA[var _tmr = _tmr || [];_tmr.push({id: '.$mr_id.', type: "pageView", start: (new Date()).getTime()});(function (d, w) {   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }})(document, window);//]]></script><noscript><div style="position:absolute;left:-10000px;"><img src="//top-fwz1.mail.ru/counter?id='.$mr_id.';js=na" style="border:0;" height="1" width="1" alt="Rating Mail.ru" /></noscript><!-- /Rating Mail.ru counter -->';
 	if($mr_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
@@ -14,19 +16,21 @@ function MailRu ($separator){
 
 function YandexMetrika ($separator){
 	// Initialise variables
-	$params = $this->params;
-	$ym_enabled 			= $params->get( 'ym_enabled', '1' );
-	$ym_noIndexWrapper 		= $params->get( 'ym_noindexWrapper', '1' );
-	$ym_id 					= $params->get( 'ym_id', '000000' );
-	$ym_yaParams			= $params->get( 'ym_yaParams', '' );
-	$ym_trackHash			= $params->get( 'ym_trackHash', '' );
-	$ym_webvisor 			= $params->get( 'ym_webvisor', '1' );
-	$ym_clickMap 			= $params->get( 'ym_clickMap', '1' );
-	$ym_linksOut 			= $params->get( 'ym_linksOut', '1' );
-	$ym_accurateTrackBounce = $params->get( 'ym_accurateTrackBounce', '' );
-	$ym_noIndex 			= $params->get( 'ym_noIndex', '1' );
-    $ym_ecommerce 			= $params->get( 'ym_ecommerce', '1' );
-    $ym_ecmdl 			    = $params->get( 'ym_ecmdl', 'dataLayer' );
+    $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
+    $pluginParams = new JRegistry();
+    $pluginParams->loadString($plugin->params);
+	$ym_enabled 			= $pluginParams->get( 'ym_enabled', '1' );
+	$ym_noIndexWrapper 		= $pluginParams->get( 'ym_noindexWrapper', '1' );
+	$ym_id 					= $pluginParams->get( 'ym_id', '000000' );
+	$ym_yaParams			= $pluginParams->get( 'ym_yaParams', '' );
+	$ym_trackHash			= $pluginParams->get( 'ym_trackHash', '' );
+	$ym_webvisor 			= $pluginParams->get( 'ym_webvisor', '1' );
+	$ym_clickMap 			= $pluginParams->get( 'ym_clickMap', '1' );
+	$ym_linksOut 			= $pluginParams->get( 'ym_linksOut', '1' );
+	$ym_accurateTrackBounce = $pluginParams->get( 'ym_accurateTrackBounce', '' );
+	$ym_noIndex 			= $pluginParams->get( 'ym_noIndex', '1' );
+    $ym_ecommerce 			= $pluginParams->get( 'ym_ecommerce', '1' );
+    $ym_ecmdl 			    = $pluginParams->get( 'ym_ecmdl', 'dataLayer' );
 
 	//Extended functions
 	if ($ym_yaParams !='')          {$ym_ef_yaParams='<script type="text/javascript">var yaParams = {'.$ym_yaParams.'};</script>'; $ym_ef_yaParams2='params:window.yaParams||{ }';}
@@ -47,15 +51,17 @@ function YandexMetrika ($separator){
 
 function GoogleAnalytics ($separator) {
 	// Initialise variables
-	$params = $this->params;
-	$ga_enabled 			= $params->get( 'ga_enabled', '1' );
-	$ga_legacy	 			= $params->get( 'ga_legacy', '0' );
-	$ga_noIndexWrapper 		= $params->get( 'ga_noindexWrapper', '1' );
-	$ga_id 					= $params->get( 'ga_id', '000000' );
-	$ga_domain 				= $params->get( 'ga_domain', '' );
-	$ga_uid 				= $params->get( 'ga_uid', '' );
-	$ga_demographic			= $params->get( 'ga_demographic', '' );
-	$ga_extattrib			= $params->get( 'ga_extattrib', '' );
+    $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
+    $pluginParams = new JRegistry();
+    $pluginParams->loadString($plugin->params);
+	$ga_enabled 			= $pluginParams->get( 'ga_enabled', '1' );
+	$ga_legacy	 			= $pluginParams->get( 'ga_legacy', '0' );
+	$ga_noIndexWrapper 		= $pluginParams->get( 'ga_noindexWrapper', '1' );
+	$ga_id 					= $pluginParams->get( 'ga_id', '000000' );
+	$ga_domain 				= $pluginParams->get( 'ga_domain', '' );
+	$ga_uid 				= $pluginParams->get( 'ga_uid', '' );
+	$ga_demographic			= $pluginParams->get( 'ga_demographic', '' );
+	$ga_extattrib			= $pluginParams->get( 'ga_extattrib', '' );
 	//Extended functions
 	//Google Analytics
 	if ($ga_demographic)$ga_ef_demographic	="ga('require', 'displayfeatures');"; 										 else $ga_ef_demographic='';
@@ -74,14 +80,16 @@ function GoogleAnalytics ($separator) {
 
 function PiwikCounter ($separator){
 	// Initialise variables
-	$params = $this->params;
-	$pwk_enabled 			= $params->get( 'pwk_enabled', '1' );
-	$pwk_noIndexWrapper 	= $params->get( 'pwk_noindexWrapper', '1' );
-	$pwk_addDomain			= $params->get( 'pwk_addDomain', '' );
-	$pwk_subdomains 		= $params->get( 'pwk_subdomains', '' );
-	$pwk_linksOut 			= $params->get( 'pwk_linksOut', '' );
-	$pwk_address 			= $params->get( 'pwk_address', '' );
-	$pwk_domain 			= $params->get( 'pwk_domain', '' );
+    $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
+    $pluginParams = new JRegistry();
+    $pluginParams->loadString($plugin->params);
+	$pwk_enabled 			= $pluginParams->get( 'pwk_enabled', '1' );
+	$pwk_noIndexWrapper 	= $pluginParams->get( 'pwk_noindexWrapper', '1' );
+	$pwk_addDomain			= $pluginParams->get( 'pwk_addDomain', '' );
+	$pwk_subdomains 		= $pluginParams->get( 'pwk_subdomains', '' );
+	$pwk_linksOut 			= $pluginParams->get( 'pwk_linksOut', '' );
+	$pwk_address 			= $pluginParams->get( 'pwk_address', '' );
+	$pwk_domain 			= $pluginParams->get( 'pwk_domain', '' );
 	//Extended functions
 	if ($pwk_linksOut) 	$pwk_ef_linksOut	='_paq.push(["setDomains", ["*.'.$pwk_domain.'"]]); '; 						 else $pwk_ef_linksOut='';
 	if ($pwk_subdomains)$pwk_ef_subdomains	='_paq.push(["setCookieDomain", "*.'.$pwk_domain.'"]); '; 					 else $pwk_ef_subdomains='';
@@ -95,9 +103,11 @@ function PiwikCounter ($separator){
 
 function LiveInternet ($separator) {
 	// Initialise variables
-	$params = $this->params;
-	$li_enabled 			= $params->get( 'li_enabled', '1' );
-	$li_noIndexWrapper 		= $params->get( 'li_noindexWrapper', '1' );
+    $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
+    $pluginParams = new JRegistry();
+    $pluginParams->loadString($plugin->params);
+	$li_enabled 			= $pluginParams->get( 'li_enabled', '1' );
+	$li_noIndexWrapper 		= $pluginParams->get( 'li_noindexWrapper', '1' );
 
 	$script	= '<!-- LiveInternet counter --><script type="text/javascript"><!--new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();//--></script><!-- /LiveInternet counter -->';
 	if($li_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
@@ -107,11 +117,13 @@ function LiveInternet ($separator) {
 
 function OpenStat ($separator){
 	// Initialise variables
-	$params = $this->params;
-	$os_enabled 			= $params->get( 'os_enabled', '1' );
-	$os_identified			= $params->get( 'os_identified', '0' );
-	$os_id 					= $params->get( 'os_id', '000000' );
-	$os_noIndexWrapper 		= $params->get( 'os_noindexWrapper', '1' );
+    $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
+    $pluginParams = new JRegistry();
+    $pluginParams->loadString($plugin->params);
+	$os_enabled 			= $pluginParams->get( 'os_enabled', '1' );
+	$os_identified			= $pluginParams->get( 'os_identified', '0' );
+	$os_id 					= $pluginParams->get( 'os_id', '000000' );
+	$os_noIndexWrapper 		= $pluginParams->get( 'os_noindexWrapper', '1' );
 	//Extended functions
 	if (!$os_identified) $os_id = 1;
 
@@ -123,10 +135,12 @@ function OpenStat ($separator){
 
 function HotLog ($separator){
 	// Initialise variables
-	$params = $this->params;
-	$hl_enabled 			= $params->get( 'hl_enabled', '1' );
-	$hl_noIndexWrapper 		= $params->get( 'hl_noindexWrapper', '1' );
-	$hl_id 					= $params->get( 'hl_id', '000000' );
+    $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
+    $pluginParams = new JRegistry();
+    $pluginParams->loadString($plugin->params);
+	$hl_enabled 			= $pluginParams->get( 'hl_enabled', '1' );
+	$hl_noIndexWrapper 		= $pluginParams->get( 'hl_noindexWrapper', '1' );
+	$hl_id 					= $pluginParams->get( 'hl_id', '000000' );
 
 	$script		= "<!-- HotLog counter --><span id='hotlog_counter'></span><span id='hotlog_dyn'></span><script type='text/javascript'> var hot_s = document.createElement('script'); hot_s.type = 'text/javascript'; hot_s.async = true; hot_s.src = 'http://js.hotlog.ru/dcounter/" . $hl_id ."; hot_d = document.getElementById('hotlog_dyn');hot_d.appendChild(hot_s);</script><noscript><a href='http://click.hotlog.ru/?" . $hl_id ."' target='_blank'><img src='http://hit.hotlog.ru/cgi-bin/hotlog/count?s=" . $hl_id ."&amp;im=307' border='0' alt='HotLog'></a></noscript><!-- /HotLog counter -->";
 	if($hl_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
@@ -136,10 +150,12 @@ function HotLog ($separator){
 
 function RamblerTop ($separator){
 	// Initialise variables
-	$params = $this->params;
-	$rr_enabled 			= $params->get( 'rr_enabled', '1' );
-	$rr_noIndexWrapper 		= $params->get( 'rr_noindexWrapper', '1' );
-	$rr_id 					= $params->get( 'rr_id', '' );
+    $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
+    $pluginParams = new JRegistry();
+    $pluginParams->loadString($plugin->params);
+	$rr_enabled 			= $pluginParams->get( 'rr_enabled', '1' );
+	$rr_noIndexWrapper 		= $pluginParams->get( 'rr_noindexWrapper', '1' );
+	$rr_id 					= $pluginParams->get( 'rr_id', '' );
 
 	$script		= '<!-- Rambler counter --><script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?'. $rr_id .'"></script><noscript><a href="http://top100.rambler.ru/navi/'. $rr_id .'/"><img src="http://counter.rambler.ru/top100.cnt?'. $rr_id .'" alt="Ramblers Top100" border="0" /></a></noscript><!-- /Rambler counter -->';
 	if($rr_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
