@@ -36,17 +36,21 @@ class plgSystemSunStat extends JPlugin
         {
             return;
         }
-		$params = $this->params;
-        $separator = $params->get( 'separator', 'enter' );
+        $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
+        $pluginParams = new JRegistry();
+        $pluginParams->loadString($plugin->params);
+        $separator = $pluginParams->get( 'separator', 'enter' );
         switch ($separator)
         {
-            case 'none': $separator=''; break;
-            case 'space': $separator=' '; break;
-            case 'enter': $separator='
-            '; break;
-            case 'paragraph': $separator='
+            case "none": $separator=""; break;
+            case "space": $separator=""; break;
+            case "enter": $separator="
+            "; break;
+            case "paragraph": $separator="
             
-            '; break;
+            "; break;
+            default: $separator="
+            "; break;
         }
 
        include_once ('functions.php');
@@ -58,7 +62,7 @@ class plgSystemSunStat extends JPlugin
 
         $javascript=MailRu($separator).YandexMetrika($separator).GoogleAnalytics($separator).PiwikCounter($separator).LiveInternet($separator).OpenStat($separator).HotLog($separator).RamblerTop($separator);
 
-		$buffer = preg_replace ("/<body>/", "</body>\n\n.$javascript", $buffer);
+		$buffer = preg_replace ("</body>", $javascript."</body>", $buffer);
 		
 		//output the buffer
 		JResponse::setBody($buffer);
