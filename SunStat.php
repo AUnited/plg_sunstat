@@ -59,7 +59,7 @@ class plgSystemSunStat extends JPlugin
 
         //getting body code, changing and writing
 		$buffer = JResponse::getBody();
-		$buffer = preg_replace ("</body>", $javascript."</body>", $buffer);
+		$buffer = str_replace ("</body>", $javascript."</body>", $buffer);
 		JResponse::setBody($buffer);
 		
 		return true;
