@@ -1,8 +1,21 @@
 <?php
+// Prefixes
+// mr_ = MailRu
+// ym_ = Yandex
+// ga_ = Google
+// pwk_ = Piwik
+// li_ = LiveInternet
+// hl_ = Hotlog
+// rr_ = Rambler
+// os_ = OpenStat (SpyLog)
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
+/**
+ * @param $separator
+ * @return string
+ */
 function MailRu ($separator){
 	// Initialise variables
     $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
@@ -18,6 +31,10 @@ function MailRu ($separator){
 	if ($mr_enabled){return $script.$separator;} else {return '';}
 }
 
+/**
+ * @param $separator
+ * @return string
+ */
 function YandexMetrika ($separator){
 	// Initialise variables
     $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
@@ -53,6 +70,10 @@ function YandexMetrika ($separator){
 	if ($ym_enabled){return $script.$separator;} else {return '';}
 }
 
+/**
+ * @param $separator
+ * @return string
+ */
 function GoogleAnalytics ($separator) {
 	// Initialise variables
     $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
@@ -82,6 +103,10 @@ function GoogleAnalytics ($separator) {
 	if ($ga_enabled){return $script.$separator;} else {return '';}
 }
 
+/**
+ * @param $separator
+ * @return string
+ */
 function PiwikCounter ($separator){
 	// Initialise variables
     $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
@@ -105,6 +130,10 @@ function PiwikCounter ($separator){
 	if ($pwk_enabled){return $script.$separator;} else {return '';}
 }
 
+/**
+ * @param $separator
+ * @return string
+ */
 function LiveInternet ($separator) {
 	// Initialise variables
     $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
@@ -119,6 +148,10 @@ function LiveInternet ($separator) {
 	if ($li_enabled){return $script.$separator;} else {return '';}
 }
 
+/**
+ * @param $separator
+ * @return string
+ */
 function OpenStat ($separator){
 	// Initialise variables
     $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
@@ -137,6 +170,10 @@ function OpenStat ($separator){
 	if ($os_enabled){return $script.$separator;} else {return '';}
 }
 
+/**
+ * @param $separator
+ * @return string
+ */
 function HotLog ($separator){
 	// Initialise variables
     $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
@@ -152,6 +189,10 @@ function HotLog ($separator){
 	if ($hl_enabled){return $script.$separator;} else {return '';}
 }
 
+/**
+ * @param $separator
+ * @return string
+ */
 function RamblerTop ($separator){
 	// Initialise variables
     $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
