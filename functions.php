@@ -1,4 +1,8 @@
 <?php
+
+// no direct access
+defined( '_JEXEC' ) or die( 'Restricted access' );
+
 function MailRu ($separator){
 	// Initialise variables
     $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
