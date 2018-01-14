@@ -49,22 +49,17 @@ class plgSystemSunStat extends JPlugin
             case "paragraph": $separator="
             
             "; break;
-            default: $separator="
-            "; break;
+            default: $separator=" 
+            "; break;  //Debug only, never must be used
         }
 
        include_once ('functions.php');
 
-		//getting body code and storing as buffer
-		$buffer = JResponse::getBody();
-
-		//output and separate
-
         $javascript=MailRu($separator).YandexMetrika($separator).GoogleAnalytics($separator).PiwikCounter($separator).LiveInternet($separator).OpenStat($separator).HotLog($separator).RamblerTop($separator);
 
+        //getting body code, changing and writing
+		$buffer = JResponse::getBody();
 		$buffer = preg_replace ("</body>", $javascript."</body>", $buffer);
-		
-		//output the buffer
 		JResponse::setBody($buffer);
 		
 		return true;
