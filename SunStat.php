@@ -2,7 +2,7 @@
 # @version		$version 1.0 Amvis United Company Limited  $
 # @copyright	Copyright (C) 2016 AUnited Co Ltd. All rights reserved.
 # @license		SunStat 1.0 by Vitaliy Zhukov licensed under Apache v2.0, see LICENSE
-# Updated		17st October 2016
+# Updated		15st January 2018
 #
 # Site: http://aunited.ru
 # Email: info@aunited.ru

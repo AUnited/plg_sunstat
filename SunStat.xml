@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE extension PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "http://help.aunited.ru/dtd/joomla/3.0/plugin-install.dtd">
-<extension version="2.5" type="plugin" group="system" method="upgrade">
+<extension version="3.0" type="plugin" group="system" method="upgrade">
   <name>PLG_SYSTEM_SUNSTAT</name>
   <author>Vitaliy Zhukov</author>
-  <creationDate>January 2017</creationDate>
+  <creationDate>January 2018</creationDate>
   <authorEmail>info@aunited.ru</authorEmail>
   <authorUrl>http://aunited.ru</authorUrl>
   <version>1.0</version>
-  <copyright>Copyright (c) 2017 AUnuted Co. Ltd. All rights reserved.</copyright>
-  <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
-  <description><![CDATA[PLG_SUNSTAT_XML_DESCRIPTION]]></description>
+  <copyright>Copyright (c) 2018 AUnuted Co. Ltd. All rights reserved.</copyright>
+  <license>http://www.apache.org/licenses/ Apache License</license>
+  <description>PLG_SUNSTAT_XML_DESCRIPTION</description>
   <files>
 	<folder>language</folder>
       <filename plugin="SunStat">functions.php</filename>
