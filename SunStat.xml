@@ -3,7 +3,7 @@
 <extension version="3.0" type="plugin" group="system" method="upgrade">
   <name>PLG_SYSTEM_SUNSTAT</name>
   <author>Vitaliy Zhukov</author>
-  <creationDate>January 2018</creationDate>
+  <creationDate>January 2019</creationDate>
   <authorEmail>info@aunited.ru</authorEmail>
   <authorUrl>http://aunited.ru</authorUrl>
   <version>1.0</version>
@@ -71,11 +71,11 @@
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
-		<field name="pwk_enabled" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_PWK_ENABLED" description="PLG_SYS_SS_ENABLED_DESC">
+		<field name="mtm_enabled" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_SS_MTM_ENABLED" description="PLG_SYS_SS_ENABLED_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
 		</field> 
-		<field name="pwk_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
+		<field name="mtm_noindexWrapper" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_NOINDEX_WRAPPER" description="PLG_SYS_SS_NOINDEX_WRAPPER_DESC">
               <option value="0">JNo</option>
               <option value="1">JYes</option>
         </field>
@@ -157,22 +157,22 @@
 		<field name="mr_id" type="text" default="XXXXXXXXXX" label="PLG_SYS_SS_MR_ID" description="PLG_SYS_SS_MR_ID_DESC" />
 	</fieldset>
 		
-	<fieldset name="PLG_SYSTEM_SUNSTAT_PWK">
-	  <field name="pwk_subdomains" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_PWK_SUBDOMAINS" description="PLG_SYS_SS_PWK_SUBDOMAINS_DESC">
+	<fieldset name="PLG_SYSTEM_SUNSTAT_MTM">
+	  <field name="mtm_subdomains" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_MTM_SUBDOMAINS" description="PLG_SYS_SS_MTM_SUBDOMAINS_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
-		<field name="pwk_addDomain" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_PWK_ADDDOMAIN" description="PLG_SYS_SS_PWK_ADDDOMAIN_DESC">
+		<field name="mtm_addDomain" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_MTM_ADDDOMAIN" description="PLG_SYS_SS_MTM_ADDDOMAIN_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
-		<field name="pwk_linksOut" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_PWK_OUTLINKS" description="PLG_SYS_SS_PWK_OUTLINKS_DESC">
+		<field name="mtm_linksOut" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_SYS_SS_MTM_OUTLINKS" description="PLG_SYS_SS_MTM_OUTLINKS_DESC">
             <option value="0">JNo</option>
             <option value="1">JYes</option>
         </field>
-		<field name="pwk_domain" type="text" default="example.com" label="PLG_SYS_SS_PWK_DOMAIN" description="PLG_SYS_SS_PWK_DOMAIN_DESC">
+		<field name="mtm_domain" type="text" default="example.com" label="PLG_SYS_SS_MTM_DOMAIN" description="PLG_SYS_SS_MTM_DOMAIN_DESC">
 		</field>
-        <field name="pwk_address" type="text" default="example.com" label="PLG_SYS_SS_PWK_ADDRESS" description="PLG_SYS_SS_PWK_ADDRESS_DESC">
+        <field name="mtm_address" type="text" default="example.com" label="PLG_SYS_SS_MTM_ADDRESS" description="PLG_SYS_SS_MTM_ADDRESS_DESC">
         </field>
 		</fieldset>
 		

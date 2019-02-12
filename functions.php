@@ -3,7 +3,7 @@
 // mr_ = MailRu
 // ym_ = Yandex
 // ga_ = Google
-// pwk_ = Piwik
+// mtm_ = Piwik
 // li_ = LiveInternet
 // hl_ = Hotlog
 // rr_ = Rambler
@@ -112,22 +112,22 @@ function PiwikCounter ($separator){
     $plugin = JPluginHelper::getPlugin( 'system', 'SunStat' );
     $pluginParams = new JRegistry();
     $pluginParams->loadString($plugin->params);
-	$pwk_enabled 			= $pluginParams->get( 'pwk_enabled', '1' );
-	$pwk_noIndexWrapper 	= $pluginParams->get( 'pwk_noindexWrapper', '1' );
-	$pwk_addDomain			= $pluginParams->get( 'pwk_addDomain', '' );
-	$pwk_subdomains 		= $pluginParams->get( 'pwk_subdomains', '' );
-	$pwk_linksOut 			= $pluginParams->get( 'pwk_linksOut', '' );
-	$pwk_address 			= $pluginParams->get( 'pwk_address', '' );
-	$pwk_domain 			= $pluginParams->get( 'pwk_domain', '' );
+	$mtm_enabled 			= $pluginParams->get( 'mtm_enabled', '1' );
+	$mtm_noIndexWrapper 	= $pluginParams->get( 'mtm_noindexWrapper', '1' );
+	$mtm_addDomain			= $pluginParams->get( 'mtm_addDomain', '' );
+	$mtm_subdomains 		= $pluginParams->get( 'mtm_subdomains', '' );
+	$mtm_linksOut 			= $pluginParams->get( 'mtm_linksOut', '' );
+	$mtm_address 			= $pluginParams->get( 'mtm_address', '' );
+	$mtm_domain 			= $pluginParams->get( 'mtm_domain', '' );
 	//Extended functions
-	if ($pwk_linksOut) 	$pwk_ef_linksOut	='_paq.push(["setDomains", ["*.'.$pwk_domain.'"]]); '; 						 else $pwk_ef_linksOut='';
-	if ($pwk_subdomains)$pwk_ef_subdomains	='_paq.push(["setCookieDomain", "*.'.$pwk_domain.'"]); '; 					 else $pwk_ef_subdomains='';
-	if ($pwk_addDomain)	$pwk_ef_addDomain	='_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);'; else $pwk_ef_addDomain='';
+	if ($mtm_linksOut) 	$mtm_ef_linksOut	='_paq.push(["setDomains", ["*.'.$mtm_domain.'"]]); '; 						 else $mtm_ef_linksOut='';
+	if ($mtm_subdomains)$mtm_ef_subdomains	='_paq.push(["setCookieDomain", "*.'.$mtm_domain.'"]); '; 					 else $mtm_ef_subdomains='';
+	if ($mtm_addDomain)	$mtm_ef_addDomain	='_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);'; else $mtm_ef_addDomain='';
 
-	$script	= '<!-- Piwik counter --><script type="text/javascript">  var _paq = _paq || [];'.$pwk_ef_addDomain.$pwk_ef_subdomains.$pwk_ef_linksOut.'_paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://'.$pwk_address.'/";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", 1]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><noscript><p><img src="http://'.$pwk_domain.'/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript><!-- /Piwik counter -->';
-	if($pwk_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
+	$script	= '<!-- Piwik counter --><script type="text/javascript">  var _paq = _paq || [];'.$mtm_ef_addDomain.$mtm_ef_subdomains.$mtm_ef_linksOut.'_paq.push(["trackPageView"]);  _paq.push(["enableLinkTracking"]);  (function() {    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://'.$mtm_address.'/";    _paq.push(["setTrackerUrl", u+"piwik.php"]);    _paq.push(["setSiteId", 1]);    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);  })();</script><noscript><p><img src="http://'.$mtm_domain.'/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript><!-- /Piwik counter -->';
+	if($mtm_noIndexWrapper) $script = '<!--noindex-->' . $script . '<!--/noindex-->';
 
-	if ($pwk_enabled){return $script.$separator;} else {return '';}
+	if ($mtm_enabled){return $script.$separator;} else {return '';}
 }
 
 /**
